@@ -15,7 +15,5 @@ html, body {
 
 .main {
     flex: 1 1 auto;
-
-    width: 1140px;
     margin: auto;
 }
