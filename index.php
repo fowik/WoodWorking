@@ -27,5 +27,7 @@
     <?php include 'assets/views/footer.php'; ?>
     
     </div>
+
+    <script src="assets/js/jquery.js"></script>
 </body>
 </html>
