@@ -1,36 +1,32 @@
 <nav>
-<input type="checkbox" id="hmt" class="hidden-menu-ticker">
-    <header>
+    <div id="navbar">
         <div class="nav-bar">
             <a href="./"><h1>Danfort</h1></a>
             <div class="links">
-                <a href="">Sākumlapa</a>
-                <a href="">Par mums</a>
-                <a href="">Partneri</a>
-                <a href="">Produkcijas katalogs</a>
-                <a href="">Kontakti</a>
+                <ul>
+                    <li><a href="register.php">Reģistrācija</a></li>
+                    <li><a href="">Sākumlapa</a></li>
+                    <li><a href="">Par mums</a></li>
+                    <li><a href="">Partneri</a></li>
+                    <li><a href="">Produkcijas katalogs</a></li>
+                    <li><a href="">Kontakti</a></li>
+                    <li class="dropdown">
+                        <a href="">Preču katalogs</a>
+                        <div class="dropdown-content">
+                            <a href="">Apdares dēļi(vagondēļi)</a>
+                            <a href="">Block-house(guļbūves baļķu imitācija)</a>
+                            <a href="">Grīdas dēļi</a>
+                            <a href="">Terases dēļi</a>
+                            <a href="">Koka starpsienas</a>
+                            <a href="">Pirts iekšējās apdares dēļi</a>
+                            <a href="">Aplodas</a>
+                            <a href="">Grīdas līstes </a>
+                            <a href="">Ēvelēti žāgmaterāli</a>
+                            <a href="">Ēvelēti zāģmateriāli (Sibirijas lapēgle)</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </header>
-    
-    <!-- Далее вёрстка самой иконки. Разделена на спаны, что бы красиво превращать в крестик при открытии (почти как в Телеграме :) -->
-    <label class="btn-menu" for="hmt">
-        <span class="first"></span>
-        <span class="second"></span>
-        <span class="third"></span>
-    </label>
-
-    <ul class="hidden-menu">
-        <div class="enter"></div>
-        <li><a href="">Apdares dēļi(vagondēļi)</a></li><br>
-        <li><a href="">Block-house(guļbūves baļķu imitācija)</a></li><br>
-        <li><a href="">Grīdas dēļi</a></li><br>
-        <li><a href="">Terases dēļi</a></li><br>
-        <li><a href="">Koka starpsienas</a></li><br>
-        <li><a href="">Pirts iekšējās apdares dēļi</a></li><br>
-        <li><a href="">Aplodas</a></li><br>
-        <li><a href="">Grīdas līstes </a></li><br>
-        <li><a href="">Ēvelēti žāgmaterāli</a></li><br>
-        <li><a href="">Ēvelēti zāģmateriāli (Sibirijas lapēgle)</a></li><br>
-    </ul>
+    </div>
 </nav>

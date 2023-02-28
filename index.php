@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="assets/css/nav-bar.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
     <!-- LINKS -->
-    <title>Index</title>
+    <title>Danfort</title>
 </head>
 <body>
     <div class="wrapper">
@@ -33,12 +33,19 @@
                     <a href="">Pakalpojumi</a>
                 </div>
             </section>
+
+            <section class="section-two">
+                <div class="text-two">
+                    <p>Pakalpojumi</p>
+                </div>
+            </section>
         </div>
 
     <?php include 'assets/views/footer.php'; ?>
     
     </div>
 
-    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery.js">
+    </script>
 </body>
 </html>

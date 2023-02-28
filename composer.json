@@ -1,0 +1,17 @@
+{
+    "name": "ilari/woodworking",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ilya Rimsa"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ilari\\App\\": "src/"
+        }
+    }
+}
