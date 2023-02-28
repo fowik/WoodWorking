@@ -8,7 +8,11 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "league/route": "^5.1",
+        "laminas/laminas-diactoros": "^2.24",
+        "laminas/laminas-httphandlerrunner": "^2.5"
+    },
     "autoload": {
         "psr-4": {
             "ilari\\App\\": "src/"
