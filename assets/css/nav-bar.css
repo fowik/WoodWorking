@@ -55,13 +55,12 @@
     overflow: hidden;
 }
 
-li {
+.links li {
     float: left;
 }
   
-li a, .dropbtn {
+.links li a, .dropbtn {
     display: inline-block;
-    color: blue;
     font-size:20px;
     text-align: center;
     padding: 10px 20px;
@@ -73,7 +72,7 @@ li a, .dropbtn {
   color: white;
 }
   
-li a:hover , .dropdown:hover .dropbtn{
+.links li a:hover , .dropdown:hover .dropbtn{
     background-color: #3A7853;
     color: white;
 }

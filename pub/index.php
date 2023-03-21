@@ -22,6 +22,7 @@ $router = new League\Route\Router;
 // map a route
 $router->map('GET', '/', ilari\App\Controller\HomeController::class);
 $router->map('GET', '/register', ilari\App\Controller\RegisterController::class);
+$router->map('GET', '/contact-us', ilari\App\Controller\ContactController::class);
 
 $response = $router->dispatch($request);
 
