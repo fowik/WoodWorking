@@ -8,13 +8,11 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Laminas\Diactoros\Response;
 
-class HomeController
+class HomeController extends DefaultController
 {
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {
-        $response = new Response();
-        $response->getBody()->write("<h1>Hello World!</h1>");
-        return $response;
+        return $this->renderTemplate('home-template.php');
     }
 
 }

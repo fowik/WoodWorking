@@ -9,6 +9,10 @@ require_once __DIR__ . '/../bootstrap.php';
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
+if(str_contains($uri, '.css') || str_contains($uri, '.js')) {
+    return false;
+}
+
 $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
     $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES
 );
