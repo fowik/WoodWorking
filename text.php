@@ -18,13 +18,9 @@
 <body>
     <div class="wrapper">
 
-    <?php include 'assets/views/nav-bar.php'; ?>
-
         <div class="main">
             
         </div>
-
-    <?php include 'assets/views/footer.php'; ?>
     
     </div>
 </body>
