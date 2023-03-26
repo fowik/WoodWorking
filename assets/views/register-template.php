@@ -1,17 +1,14 @@
 <div class="register">
     <h1>Reģistrācija</h1>
 	<form action="register.php" method="post">
-		<label for="username">Username:</label>
-		<input type="text" id="username" name="username" required><br><br>
+		<input type="text" id="username" name="username" placeholder="Username" required><br><br>
 
-		<label for="email">Email:</label>
-		<input type="email" id="email" name="email" required><br><br>
 
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" required><br><br>
+		<input type="email" id="email" name="email" placeholder="E-mail" required><br><br>
 
-		<label for="confirm_password">Confirm Password:</label>
-		<input type="password" id="confirm_password" name="confirm_password" required><br><br>
+		<input type="password" id="password" name="password" placeholder="Password" required><br><br>
+
+		<input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required><br><br>
 
 		<input type="submit" value="Register">
 	</form>
