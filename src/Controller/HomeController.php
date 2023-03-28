@@ -11,7 +11,10 @@ use Laminas\Diactoros\Response;
 class HomeController extends DefaultController
 {
     public function __invoke(ServerRequestInterface $request): ResponseInterface
-    {
+    {   
+        $stmt = $this->database->prepare("SELECT * FROM user;");
+        $this->database->execute($stmt);
+
         return $this->renderTemplate('home-template.php');
     }
 

@@ -12,6 +12,7 @@ class RegisterController extends DefaultController
 {
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {
+        
         return $this->renderTemplate('register-template.php');
     }
 
