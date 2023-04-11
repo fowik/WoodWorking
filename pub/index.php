@@ -22,6 +22,7 @@ $router = new League\Route\Router;
 // map a route
 $router->map('GET', '/', App\Controller\HomeController::class);
 $router->map('GET', '/register', App\Controller\RegisterController::class);
+$router->map('POST', '/register', App\Controller\RegisterController::class);
 $router->map('GET', '/contact-us', App\Controller\ContactController::class);
 
 $response = $router->dispatch($request);
