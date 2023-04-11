@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ilari\App\Controller;
+namespace App\Controller;
 
-use DatabaseConnection;
+use App\DatabaseConnection;
 use Laminas\Diactoros\Response;
 
 abstract class DefaultController    

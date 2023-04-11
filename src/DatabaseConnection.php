@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 class DatabaseConnection
 {
     private $connection;
@@ -10,10 +12,10 @@ class DatabaseConnection
 
     public function __construct()
     {
-        $this->connection = new PDO("mysql:host=". self::DB_HOST .";dbname=" . self::DB_NAME . "", self::DB_USER, self::DB_PASSWORD);
+        $this->connection = new \PDO("mysql:host=". self::DB_HOST .";dbname=" . self::DB_NAME . "", self::DB_USER, self::DB_PASSWORD);
     }
 
-    public function prepare($sql): PDOStatement 
+    public function prepare($sql): \PDOStatement 
     {
         return $this->connection->prepare($sql);
     } 
@@ -23,8 +25,4 @@ class DatabaseConnection
         return $this->connection->exec($sql);
     }
 
-
-
 }
-
-password_hash($password, PASSWORD_DEFAULT);

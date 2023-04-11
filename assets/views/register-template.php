@@ -1,8 +1,7 @@
 <div class="register">
     <h1>Reģistrācija</h1>
-	<form action="register.php" method="post">
+	<form action="../../src/ClassForm.php" method="POST">
 		<input type="text" id="username" name="username" placeholder="Username" required><br><br>
-
 
 		<input type="email" id="email" name="email" placeholder="E-mail" required><br><br>
 

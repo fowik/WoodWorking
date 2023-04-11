@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ilari\\App\\": "src/"
+            "App\\": "src/"
         }
     },
     "scripts": {
