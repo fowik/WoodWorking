@@ -6,19 +6,18 @@ namespace App\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use App\Class\ClassSendToDB;
+use App\Class\ClassSignIn;
 use Laminas\Diactoros\Response;   
 
-class RegisterController extends DefaultController
+class LoginController extends DefaultController
 {
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {
         if ($request->getMethod() === 'post') {
-            $obj = new ClassSendToDB();
-            $obj->sendToDB();
+            $obj = new ClassSignIn();
+            $obj->signIn();
         }
-                
-        return $this->renderTemplate('register-template.php');
+        return $this->renderTemplate('login-template.php');
     }
 
 }

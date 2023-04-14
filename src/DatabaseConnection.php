@@ -27,6 +27,6 @@ class DatabaseConnection
     
     public function query($sql)
     {
-        return $this->conn->PDO::query($sql);
+        return $this->conn->query($sql);
     }
 }

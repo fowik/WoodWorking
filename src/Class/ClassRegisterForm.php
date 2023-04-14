@@ -3,33 +3,35 @@
 namespace App\Class;
 
 use App\DatabaseConnection;
-use mysqli;
 
-class ClassForm extends DatabaseConnection {
-    // public $username;
-    // public $email;
-    // public $tel;
-    // public $password;
-    // public $password_confirm;
+class ClassRegisterForm extends DatabaseConnection {
+    private $username;
+    private $email;
+    private $tel;
+    private $password;
+    private $password_confirm;
     
-    // function __construct($username, $email, $tel, $password, $password_confirm)
-    // {
-    //     $this->username = $username;
-    //     $this->email = $email;
-    //     $this->tel = $tel;
-    //     $this->password = $password;
-    //     $this->password_confirm = $password_confirm;
-    // }
+    public function __construct(){
+        $this->username = $_POST['username'];
+        $this->email = $_POST['email'];
+        $this->tel = $_POST['tel'];
+        $this->password = $_POST['password'];
+        $this->password_confirm = $_POST['confirm_password'];
+    }
 
     public function get_uData() {
-        $conn = $this->__construct();
+        $conn = DatabaseConnection::__construct();
 
         if (! empty($_POST)) {
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            $tel = $_POST['number'];
-            $password = $_POST['password'];
-            $password_confirm = $_POST['confirm_password'];
+            $username = $this->username;
+            $email = $this->email;
+            $tel = $this->tel;
+            $password = $this->password;
+            $password_confirm = $this->password_confirm;
+
+            print_r($username);
+            print_r($email);
+            print_r($tel);
 
             if (empty($username) || empty($email) || empty($tel) || empty($password) || empty($password_confirm)) {
                 $_SESSION["message"] = 'Lūdzu, aizpildiet visus laukus!';

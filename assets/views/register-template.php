@@ -8,7 +8,6 @@
 		}
 		unset($_SESSION['message']);
 	?>
-
     <h1>Reģistrācija</h1>
 	<form action="/register" method="POST">
 		<input type="text" id="username" name="username" placeholder="Username"><br><br>
@@ -22,5 +21,6 @@
 		<input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password"><br><br>
 
 		<input type="submit" value="Register">
+		<a href="/login">vai pieslēdzies</a>
 	</form>
 </div>

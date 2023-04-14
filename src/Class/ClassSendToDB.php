@@ -3,22 +3,27 @@
 namespace App\Class;
 
 use App\DatabaseConnection;
-use App\Class\ClassForm;
+use App\Class\ClassRegisterForm;
 
 class ClassSendToDB extends DatabaseConnection {
     public function sendToDB(){
         if (! empty($_POST)) {
-            $conn = $this->__construct();
+            $conn = DatabaseConnection::__construct();
 
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             } else {
-                $obj = new ClassForm();
+                $obj = new ClassRegisterForm();
                 $username = $obj->get_uData()[0];
                 $email = $obj->get_uData()[1];
                 $tel = $obj->get_uData()[2];
                 $password = $obj->get_uData()[3];
-                
+
+                print_r($username);
+                print_r($email);
+                print_r($tel);
+                print_r($password);
+
                 $sql = "INSERT INTO `user` (`username`, `email`, `number`,`password`) VALUES ('$username', '$email', '$tel', '$password')";
                 $conn->exec($sql);
             }
