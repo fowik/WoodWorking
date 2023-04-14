@@ -19,11 +19,6 @@ class ClassSendToDB extends DatabaseConnection {
                 $tel = $obj->get_uData()[2];
                 $password = $obj->get_uData()[3];
 
-                print_r($username);
-                print_r($email);
-                print_r($tel);
-                print_r($password);
-
                 $sql = "INSERT INTO `user` (`username`, `email`, `number`,`password`) VALUES ('$username', '$email', '$tel', '$password')";
                 $conn->exec($sql);
             }

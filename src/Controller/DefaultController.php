@@ -25,6 +25,7 @@ abstract class DefaultController
         require __DIR__ . '/../../assets/views/main-template.php';
         $main = ob_get_clean();
 
+        
         $response = new Response();
         $response->getBody()->write(str_replace('{{ content }}', $view, $main));
 

@@ -14,7 +14,7 @@ class ClassRegisterForm extends DatabaseConnection {
     public function __construct(){
         $this->username = $_POST['username'];
         $this->email = $_POST['email'];
-        $this->tel = $_POST['tel'];
+        $this->tel = $_POST['number'];
         $this->password = $_POST['password'];
         $this->password_confirm = $_POST['confirm_password'];
     }
@@ -29,15 +29,11 @@ class ClassRegisterForm extends DatabaseConnection {
             $password = $this->password;
             $password_confirm = $this->password_confirm;
 
-            print_r($username);
-            print_r($email);
-            print_r($tel);
-
             if (empty($username) || empty($email) || empty($tel) || empty($password) || empty($password_confirm)) {
                 $_SESSION["message"] = 'Lūdzu, aizpildiet visus laukus!';
                 header("Location: /register");
                 exit();
-            } 
+            }
 
             if (strlen($username) < 3) {
                 $_SESSION["message"] = 'Lietotājvārds ir pārāk īss!';

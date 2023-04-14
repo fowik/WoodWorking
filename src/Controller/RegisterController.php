@@ -13,10 +13,12 @@ class RegisterController extends DefaultController
 {
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {
-        if ($request->getMethod() === 'post') {
-            $obj = new ClassSendToDB();
-            $obj->sendToDB();
-        }
+        // if ($request->getMethod() === 'post') {
+        // }
+        session_start();
+        
+        $obj = new ClassSendToDB();
+        $obj->sendToDB();
                 
         return $this->renderTemplate('register-template.php');
     }
