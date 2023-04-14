@@ -6,18 +6,18 @@ namespace App\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use App\Class\ClassForm;
-use Laminas\Diactoros\Response;
+use App\Class\ClassSendToDB;
+use Laminas\Diactoros\Response;   
 
 class RegisterController extends DefaultController
 {
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {
-        if ($request->getMethod() === 'post') {
-            $form = new ClassForm();
-            $form->get_uData(); 
-        }
-        
+        // if ($request->getMethod() === 'post') {
+            $obj = new ClassSendToDB();
+            $obj->sendToDB();
+        // }
+                
         return $this->renderTemplate('register-template.php');
     }
 

@@ -4,7 +4,7 @@ namespace App;
 
 class DatabaseConnection
 {
-    private $connection;
+    private $conn;
     private const DB_HOST = 'localhost';
     private const DB_NAME = 'woodworking';
     private const DB_USER = 'root';
@@ -12,17 +12,17 @@ class DatabaseConnection
 
     public function __construct()
     {
-        $this->connection = new \PDO("mysql:host=". self::DB_HOST .";dbname=" . self::DB_NAME . "", self::DB_USER, self::DB_PASSWORD);
+        return $this->conn = new \PDO("mysql:host=". self::DB_HOST .";dbname=" . self::DB_NAME . "", self::DB_USER, self::DB_PASSWORD);
     }
 
-    public function prepare($sql): \PDOStatement 
+    public function prepare($sql): \PDOStatement
     {
-        return $this->connection->prepare($sql);
+        return $this->conn->prepare($sql);
     } 
 
-    public function execute($sql)
+    public function execute($sql): bool
     {
-        return $this->connection->exec($sql);
+        return $this->conn->exec($sql);
     }
 
 }
