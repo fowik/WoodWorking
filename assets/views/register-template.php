@@ -8,6 +8,7 @@
 		}
 		unset($_SESSION['message']);
 	?>
+
     <h1>Reģistrācija</h1>
 	<form action="/register" method="POST">
 		<input type="text" id="username" name="username" placeholder="Username"><br><br>

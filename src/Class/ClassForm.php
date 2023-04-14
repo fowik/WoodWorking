@@ -3,6 +3,7 @@
 namespace App\Class;
 
 use App\DatabaseConnection;
+use mysqli;
 
 class ClassForm extends DatabaseConnection {
     // public $username;
@@ -60,22 +61,25 @@ class ClassForm extends DatabaseConnection {
                 exit();
             }
 
-            $sql = "SELECT * FROM `user` WHERE `username` = '%$username%'";
-            if ($conn->exec($sql) > 0) {
+            $sql = "SELECT * FROM `user` WHERE `username` = '$username'";
+            $stmt = $conn->query($sql)->rowCount();
+            if ($stmt > 0) {
                 $_SESSION["message"] = 'Lietotājvārds jau ir aizņemts!';
                 header("Location: /register");
                 exit();
             }
 
-            $sql = "SELECT * FROM `user` WHERE `email` = '%$email%'";
-            if ($conn->exec($sql) > 0) {
+            $sql = "SELECT * FROM `user` WHERE `email` = '$email'";
+            $stmt = $conn->query($sql)->rowCount();
+            if ($stmt > 0) {
                 $_SESSION["message"] = 'E-pasts jau ir aizņemts!';
                 header("Location: /register");
                 exit();
             }
             
-            $sql = "SELECT * FROM `user` WHERE `number` = '%$tel%'";
-            if ($conn->exec($sql) > 0) {
+            $sql = "SELECT * FROM `user` WHERE `number` = '$tel'";
+            $stmt = $conn->query($sql)->rowCount();
+            if ($stmt > 0) {
                 $_SESSION["message"] = 'Telefona numurs jau ir aizņemts!';
                 header("Location: /register");
                 exit();

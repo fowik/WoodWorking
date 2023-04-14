@@ -24,5 +24,9 @@ class DatabaseConnection
     {
         return $this->conn->exec($sql);
     }
-
+    
+    public function query($sql)
+    {
+        return $this->conn->PDO::query($sql);
+    }
 }
