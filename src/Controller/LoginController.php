@@ -13,10 +13,13 @@ class LoginController extends DefaultController
 {
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {
-        if ($request->getMethod() === 'post') {
-            $obj = new ClassSignIn();
-            $obj->signIn();
-        }
+        // if ($request->getMethod() === 'post') {
+        // }
+        session_start();
+
+        $obj = new ClassSignIn();
+        $obj->signIn();
+
         return $this->renderTemplate('login-template.php');
     }
 

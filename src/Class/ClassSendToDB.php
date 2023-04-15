@@ -21,6 +21,10 @@ class ClassSendToDB extends DatabaseConnection {
 
                 $sql = "INSERT INTO `user` (`username`, `email`, `number`,`password`) VALUES ('$username', '$email', '$tel', '$password')";
                 $conn->exec($sql);
+
+                $_SESSION["message"] = 'Profils ir veiksmīgi izveidots!';
+                header("Location: /login");
+                exit();
             }
         }
     }
