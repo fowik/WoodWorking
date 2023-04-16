@@ -7,6 +7,7 @@ namespace App\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Class\ClassSignIn;
+use App\Class\ClassSessionCheck;
 use Laminas\Diactoros\Response;   
 
 class LoginController extends DefaultController
@@ -16,6 +17,9 @@ class LoginController extends DefaultController
         // if ($request->getMethod() === 'post') {
         // }
         session_start();
+        
+        $obj = new ClassSessionCheck();
+        $obj->LoggedUserSessionCheck();
 
         $obj = new ClassSignIn();
         $obj->signIn();

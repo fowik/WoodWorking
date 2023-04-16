@@ -1,5 +1,6 @@
 <?php
-echo $_SESSION['user']['username'];
+var_dump($_SESSION['user']);
+
 ?>
 
 <a href="/logout">Logout</a>

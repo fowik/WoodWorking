@@ -21,8 +21,9 @@ class ClassSignIn extends DatabaseConnection {
                 ];
 
                 $_SESSION['message'] = 'Pieteikšanās veiksmīga!';
-                
+
                 header('Location: /profile');
+                exit();
             }
         }
     }

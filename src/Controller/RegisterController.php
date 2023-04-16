@@ -7,6 +7,7 @@ namespace App\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Class\ClassSendToDB;
+use App\Class\ClassSessionCheck; 
 use Laminas\Diactoros\Response;   
 
 class RegisterController extends DefaultController
@@ -17,9 +18,12 @@ class RegisterController extends DefaultController
         // }
         session_start();
         
+        $obj = new ClassSessionCheck();
+        $obj->LoggedUserSessionCheck();
+
         $obj = new ClassSendToDB();
         $obj->sendToDB();
-                
+            
         return $this->renderTemplate('register-template.php');
     }
 

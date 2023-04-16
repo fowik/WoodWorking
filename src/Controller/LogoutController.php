@@ -16,7 +16,6 @@ class LogoutController extends DefaultController
         // }
         session_start();
         
-        // return $this->renderTemplate('profile-template.php');
         session_destroy();
         header('Location: /');
         exit;
