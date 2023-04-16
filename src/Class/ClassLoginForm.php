@@ -21,7 +21,7 @@ class ClassLoginForm extends DatabaseConnection {
         $result = $conn->query($sql);
 
         if($result->rowCount() > 0) {
-            while($row = $result->fetch()) {
+            if($row = $result->fetch()) {
                 $username = $row['username'];
                 $email = $row['email'];
                 $tel = $row['number'];
