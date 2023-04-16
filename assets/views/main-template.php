@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="assets/css/nav-bar.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/index.css">
-        
+    <link rel="stylesheet" href="assets/css/profile.css">
+    <link rel="stylesheet" href="assets/css/register.css">
+    <link rel="stylesheet" href="assets/css/login.css">
     <!-- LINKS -->
     <title>Danfort</title>
 </head>
@@ -19,9 +21,15 @@
                 <a href="/"><h1>Danfort</h1></a>
                 <div class="links">
                     <ul>
-                        <li><a href="/register">Reģistrācija</a></li>
-                        <li><a href="">Sākumlapa</a></li>
-                        <li><a href="">Par mums</a></li>
+                        <li><?php
+                        if (isset($_SESSION['user'])) {
+                            echo '<a href="/profile">Profils</a>';
+                        } else {
+                            echo '<a href="/register">Reģistrācija</a>';
+                        }
+                        ?></li>
+                        <li><a onclick="scrollToStart()">Sākumlapa</a></li>
+                        <li><a onclick="scrollToAboutUs()">Par mums</a></li>
                         <li><a href="">Partneri</a></li>
                         <li><a href="">Produkcijas katalogs</a></li>
                         <li><a href="/contact-us">Kontakti</a></li>
@@ -77,4 +85,24 @@
         </div>
     </div>
 </footer>
+<script>
+    function scrollToAboutUs() {
+        window.addEventListener('load', function() {
+            const sectionThree = document.querySelector('.section-three');
+            sectionThree.scrollIntoView({ behavior: 'smooth' });
+        });
+    }   
+    function scrollToStart() {
+        window.location.href = "/";
+
+        const sectionTwo = document.querySelector('.section-one');
+        sectionTwo.scrollIntoView({ behavior: 'smooth' });
+    }
+    function scrollToServices() {
+        window.location.href = "/";
+
+        const sectionTwo = document.querySelector('.section-two');
+        sectionTwo.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
 </html>

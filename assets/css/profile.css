@@ -1,0 +1,57 @@
+/* Profile-specific styles */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+  
+.profile__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+  
+.profile__name {
+    font-size: 2rem;
+    font-weight: bold;
+}
+  
+.profile__contact {
+    font-size: 1.2rem;
+}
+  
+.profile__edit-link {
+    background-color: yellow;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+  
+.profile__edit-link:hover {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+/* Logout button */
+.logout-link {
+    background-color: #FFFFFF;
+    color: #333333;
+    border: 2px solid #333333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+  
+.logout-link:hover {
+    background-color: #333333;
+    color: #FFFFFF;
+}
