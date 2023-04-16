@@ -25,6 +25,15 @@ $router->map('GET', '/register', App\Controller\RegisterController::class);
 $router->map('POST', '/register', App\Controller\RegisterController::class);
 $router->map('GET', '/login', App\Controller\LoginController::class);
 $router->map('POST', '/login', App\Controller\LoginController::class);
+$router->map('GET', '/logout', App\Controller\LogoutController::class);
+$router->map('GET', '/profile', App\Controller\ProfileController::class);
+// $router->map('GET', '/profile/edit', App\Controller\ProfileEditController::class);
+// $router->map('POST', '/profile/edit', App\Controller\ProfileEditController::class);
+// $router->map('GET', '/profile/delete', App\Controller\ProfileDeleteController::class);
+// $router->map('GET', '/profile/change-password', App\Controller\ProfileChangePasswordController::class);
+// $router->map('POST', '/profile/change-password', App\Controller\ProfileChangePasswordController::class);
+// $router->map('GET', '/profile/change-email', App\Controller\ProfileChangeEmailController::class);
+// $router->map('POST', '/profile/change-email', App\Controller\ProfileChangeEmailController::class);
 $router->map('GET', '/contact-us', App\Controller\ContactController::class);
 
 $response = $router->dispatch($request);
