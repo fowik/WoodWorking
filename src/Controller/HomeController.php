@@ -14,7 +14,6 @@ class HomeController extends DefaultController
     {   
         // $stmt = $this->database->prepare("SELECT * FROM user;");
         // $this->database->execute($stmt);
-        session_start();
 
         return $this->renderTemplate('home-template.php');
     }

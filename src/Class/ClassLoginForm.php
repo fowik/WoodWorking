@@ -19,13 +19,12 @@ class ClassLoginForm extends DatabaseConnection {
         
         $sql = "SELECT * FROM `user` WHERE `username` = '$this->username'";
         $result = $conn->query($sql);
-
         if($result->rowCount() > 0) {
             if($row = $result->fetch()) {
-                $username = $row['username'];
-                $email = $row['email'];
-                $tel = $row['number'];
-                $password = $row['password'];
+                $username = $row['Username'];
+                $email = $row['Email'];
+                $tel = $row['PhoneNumber'];
+                $password = $row['Password'];
 
                 if (password_verify($this->password, $password)) {
                     $this->uData = [$username, $email, $tel];

@@ -17,6 +17,8 @@ $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
     $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES
 );
 
+session_start();
+
 $router = new League\Route\Router;
 
 // map a route

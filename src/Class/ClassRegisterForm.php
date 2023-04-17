@@ -75,7 +75,7 @@ class ClassRegisterForm extends DatabaseConnection {
                 exit();
             }
             
-            $sql = "SELECT * FROM `user` WHERE `number` = '$tel'";
+            $sql = "SELECT * FROM `user` WHERE `PhoneNumber` = '$tel'";
             $stmt = $conn->query($sql)->rowCount();
             if ($stmt > 0) {
                 $_SESSION["message"] = 'Telefona numurs jau ir aizņemts!';
