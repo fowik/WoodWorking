@@ -22,12 +22,14 @@ class ClassLoginForm extends DatabaseConnection {
         if($result->rowCount() > 0) {
             if($row = $result->fetch()) {
                 $username = $row['Username'];
+                $name = $row['Name'];
+                $surname = $row['Surname'];
                 $email = $row['Email'];
                 $tel = $row['PhoneNumber'];
                 $password = $row['Password'];
 
                 if (password_verify($this->password, $password)) {
-                    $this->uData = [$username, $email, $tel];
+                    $this->uData = [$username, $name, $surname, $email, $tel];
                     return $this->uData;
                 } else {
                     $_SESSION["message"] = 'Lietotājvārds vai parole ir nepareiza!';

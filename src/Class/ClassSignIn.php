@@ -18,8 +18,10 @@ class ClassSignIn extends DatabaseConnection {
 
                 $_SESSION['user'] = [
                     'username' => $obj->get_uData()[0],
-                    'email' => $obj->get_uData()[1],
-                    'tel' => $obj->get_uData()[2]
+                    'name' => $obj->get_uData()[1],
+                    'surname' => $obj->get_uData()[2],
+                    'email' => $obj->get_uData()[3],
+                    'tel' => $obj->get_uData()[4]
                 ];
 
                 // Session::get('user');
