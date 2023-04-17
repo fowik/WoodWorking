@@ -10,6 +10,7 @@ class ClassRegisterForm extends DatabaseConnection {
     private $tel;
     private $password;
     private $password_confirm;
+    private $isAdmin;
     
     public function __construct(){
         $this->username = $_POST['username'];
@@ -17,6 +18,7 @@ class ClassRegisterForm extends DatabaseConnection {
         $this->tel = $_POST['number'];
         $this->password = $_POST['password'];
         $this->password_confirm = $_POST['confirm_password'];
+        $this->isAdmin = true;
     }
 
     public function get_uData() {
@@ -74,7 +76,7 @@ class ClassRegisterForm extends DatabaseConnection {
                 header("Location: /register");
                 exit();
             }
-            
+
             $sql = "SELECT * FROM `user` WHERE `PhoneNumber` = '$tel'";
             $stmt = $conn->query($sql)->rowCount();
             if ($stmt > 0) {
@@ -84,9 +86,21 @@ class ClassRegisterForm extends DatabaseConnection {
             }
 
             if ($password === $password_confirm) {
-                $password = password_hash($password, PASSWORD_DEFAULT);
-                $dArr = [$username, $email, $tel, $password];
-                return $dArr;
+                $sql = "SELECT * FROM `user`";
+                $stmt = $conn->query($sql)->rowCount();
+                if ($stmt > 0) {
+                    $isAdmin = false;
+                    $password = password_hash($password, PASSWORD_DEFAULT);
+                
+                    $dArr = [$username, $email, $tel, $password, $isAdmin];
+                    return $dArr;
+                } else {
+                    $isAdmin = true;
+                    $password = password_hash($password, PASSWORD_DEFAULT);
+                
+                    $dArr = [$username, $email, $tel, $password, $isAdmin];
+                    return $dArr;
+                }
             } else {
                 $_SESSION["message"] = 'Jūsu paroles nesakrīt!';
                 header("Location: /register");
