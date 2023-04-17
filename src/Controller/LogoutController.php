@@ -14,7 +14,6 @@ class LogoutController extends DefaultController
     {
         // if ($request->getMethod() === 'post') {
         // }
-        session_start();
         
         session_destroy();
         header('Location: /');

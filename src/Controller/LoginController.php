@@ -16,7 +16,6 @@ class LoginController extends DefaultController
     {
         // if ($request->getMethod() === 'post') {
         // }
-        session_start();
         
         $obj = new ClassSessionCheck();
         $obj->LoggedUserSessionCheck();

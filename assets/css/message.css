@@ -1,0 +1,17 @@
+.msg-cover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.msg {
+    background-color: #f23c5a;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+}

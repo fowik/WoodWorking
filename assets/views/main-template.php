@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/profile.css">
     <link rel="stylesheet" href="assets/css/register.css">
     <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/message.css">
     <!-- LINKS -->
     <title>Danfort</title>
 </head>
