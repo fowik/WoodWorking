@@ -70,3 +70,43 @@ input[value="Saglabāt"]:hover {
   background-color: #007bff;
   color: #fff;
 }
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.profile__personal-info {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.profile__personal-info h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.profile__personal-info p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.profile__personal-info input[type="text"] {
+  display: block;
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.profile__personal-info input[type="hidden"] {
+  display: none;
+}
+#submitButton[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
