@@ -6,7 +6,8 @@ namespace App\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Laminas\Diactoros\Response;   
+use Laminas\Diactoros\Response;  
+use App\Class\ClassSession; 
 
 class LogoutController extends DefaultController
 {
@@ -15,7 +16,9 @@ class LogoutController extends DefaultController
         // if ($request->getMethod() === 'post') {
         // }
         
-        session_destroy();
+        $form = new ClassSession;
+        $form->destroy();
+        
         header('Location: /');
         exit;
     }

@@ -6,6 +6,8 @@ use App\DatabaseConnection;
 
 class ClassRegisterForm extends DatabaseConnection {
     private $username;
+    private $name;
+    private $surname;
     private $email;
     private $tel;
     private $password;
@@ -14,11 +16,13 @@ class ClassRegisterForm extends DatabaseConnection {
     
     public function __construct(){
         $this->username = $_POST['username'];
+        $this->name = $_POST['name'];
+        $this->surname = $_POST['surname'];
         $this->email = $_POST['email'];
         $this->tel = $_POST['number'];
         $this->password = $_POST['password'];
         $this->password_confirm = $_POST['confirm_password'];
-        $this->isAdmin = true;
+        $this->isAdmin = 1;
     }
 
     public function get_uData() {
@@ -26,12 +30,14 @@ class ClassRegisterForm extends DatabaseConnection {
 
         if (! empty($_POST)) {
             $username = $this->username;
+            $name = $this->name;
+            $surname = $this->surname;
             $email = $this->email;
             $tel = $this->tel;
             $password = $this->password;
             $password_confirm = $this->password_confirm;
 
-            if (empty($username) || empty($email) || empty($tel) || empty($password) || empty($password_confirm)) {
+            if (empty($username) || empty($name) || empty($surname) || empty($email) || empty($tel) || empty($password) || empty($password_confirm)) {
                 $_SESSION["message"] = 'Lūdzu, aizpildiet visus laukus!';
                 header("Location: /register");
                 exit();
@@ -89,16 +95,16 @@ class ClassRegisterForm extends DatabaseConnection {
                 $sql = "SELECT * FROM `user`";
                 $stmt = $conn->query($sql)->rowCount();
                 if ($stmt > 0) {
-                    $isAdmin = false;
+                    $isAdmin = 0;
                     $password = password_hash($password, PASSWORD_DEFAULT);
                 
-                    $dArr = [$username, $email, $tel, $password, $isAdmin];
+                    $dArr = [$username, $name, $surname, $email, $tel, $password, $isAdmin];
                     return $dArr;
                 } else {
-                    $isAdmin = true;
+                    $isAdmin = 1;
                     $password = password_hash($password, PASSWORD_DEFAULT);
                 
-                    $dArr = [$username, $email, $tel, $password, $isAdmin];
+                    $dArr = [$username, $name, $surname, $email, $tel, $password, $isAdmin];
                     return $dArr;
                 }
             } else {

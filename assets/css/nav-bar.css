@@ -9,6 +9,13 @@
     border-bottom: 2px solid #D9D9D9;
 }
 
+.nav-bar h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
 .content {
     padding: 16px;
 }

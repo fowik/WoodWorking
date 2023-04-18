@@ -17,13 +17,6 @@
     align-items: center;
 }
 
-h1 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
 form {
     display: flex;
     flex-direction: column;
@@ -44,7 +37,7 @@ form {
     outline: none;
 }
 
-input[type="submit"] {
+input[value="Login"] {
     width: 100%;
     height: 40px;
     background-color: #f23c5a;
@@ -57,7 +50,7 @@ input[type="submit"] {
     transition: all 0.2s ease-in-out;
 }
 
-input[type="submit"]:hover {
+input[value="Login"]:hover {
     background-color: #e12d47;
 }
 

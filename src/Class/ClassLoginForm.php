@@ -15,12 +15,13 @@ class ClassLoginForm extends DatabaseConnection {
     }
 
     public function get_uData(){
-        $conn = DatabaseConnection::__construct();
+        $conn = new DatabaseConnection();
         
         $sql = "SELECT * FROM `user` WHERE `username` = '$this->username'";
         $result = $conn->query($sql);
         if($result->rowCount() > 0) {
             if($row = $result->fetch()) {
+                $id = $row['uID'];
                 $username = $row['Username'];
                 $name = $row['Name'];
                 $surname = $row['Surname'];
@@ -29,7 +30,7 @@ class ClassLoginForm extends DatabaseConnection {
                 $password = $row['Password'];
 
                 if (password_verify($this->password, $password)) {
-                    $this->uData = [$username, $name, $surname, $email, $tel];
+                    $this->uData = [$id, $username, $name, $surname, $email, $tel];
                     return $this->uData;
                 } else {
                     $_SESSION["message"] = 'Lietotājvārds vai parole ir nepareiza!';
@@ -41,6 +42,27 @@ class ClassLoginForm extends DatabaseConnection {
             $_SESSION["message"] = 'Lietotājvārds vai parole ir nepareiza!';
             header("Location: /login");
             exit();
+        }
+    }
+
+    public static function edit_uData($id) {
+        $conn = new DatabaseConnection();
+
+        $sql = "SELECT * FROM `user` WHERE `uID` = '$id'";
+        $result = $conn->query($sql);
+        if($result->rowCount() > 0) {
+            if($row = $result->fetch()) {
+                $id = $row['uID'];
+                $username = $row['Username'];
+                $name = $row['Name'];
+                $surname = $row['Surname'];
+                $email = $row['Email'];
+                $tel = $row['PhoneNumber'];
+                $password = $row['Password'];
+
+                $uData = [$id, $username, $name, $surname, $email, $tel, $password];
+                return $uData;
+            }
         }
     }
 }

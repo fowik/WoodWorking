@@ -3,6 +3,7 @@
 namespace App\Class;
 
 use App\DatabaseConnection;
+use App\Class\ClassSession;
 
 class ClassSignIn extends DatabaseConnection {
     public function signIn(){
@@ -14,17 +15,8 @@ class ClassSignIn extends DatabaseConnection {
             } else {
                 $obj = new ClassLoginForm();
 
-                // Session::set('user', $obj->get_uData());
-
-                $_SESSION['user'] = [
-                    'username' => $obj->get_uData()[0],
-                    'name' => $obj->get_uData()[1],
-                    'surname' => $obj->get_uData()[2],
-                    'email' => $obj->get_uData()[3],
-                    'tel' => $obj->get_uData()[4]
-                ];
-
-                // Session::get('user');
+                ClassSession::set($obj->get_uData());
+                ClassSession::get();
 
                 $_SESSION['message'] = 'Pieteikšanās veiksmīga!';
 

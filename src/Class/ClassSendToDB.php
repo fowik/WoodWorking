@@ -15,13 +15,15 @@ class ClassSendToDB extends DatabaseConnection {
             } else {
                 $obj = new ClassRegisterForm();
                 $username = $obj->get_uData()[0];
-                $email = $obj->get_uData()[1];
-                $tel = $obj->get_uData()[2];
-                $password = $obj->get_uData()[3];
-                $admin = $obj->get_uData()[4];
+                $name = $obj->get_uData()[1];
+                $surname = $obj->get_uData()[2];
+                $email = $obj->get_uData()[3];
+                $tel = $obj->get_uData()[4];
+                $password = $obj->get_uData()[5];
+                $admin = $obj->get_uData()[6];
 
-                $sql = "INSERT INTO `user` (`Password`, `Name`,`Surname`, `Username`, `Email`, `PhoneNumber`, `isAdmin`) 
-                VALUES ('$password', 'Vārds', 'Uzvārds', '$username', '$email', '$tel', '$admin')";
+                $sql = "INSERT INTO `user` (`Password`, `Name`, `Surname`, `Username`, `Email`, `PhoneNumber`, `isAdmin`) 
+                VALUES ('$password', '$name', '$surname', '$username', '$email', '$tel', '$admin')";
                 $conn->exec($sql);
 
                 $_SESSION["message"] = 'Profils ir veiksmīgi izveidots!';
