@@ -42,7 +42,6 @@ class ProfileEditController extends DefaultController
             ClassSession::setEditUser(ClassLoginForm::edit_uData($data['id']));
             // Get the session
             ClassSession::get();
-            var_dump($_SESSION['user']);die;
                     
             $_SESSION['message'] = 'Profils veiksmīgi atjaunināts!';
 

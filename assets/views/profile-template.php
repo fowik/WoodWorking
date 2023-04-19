@@ -23,7 +23,6 @@
             <p><strong>Uzvārds: </strong><input type="text" name="surname" value="<?php echo $_SESSION['user']['surname']; ?>" disabled></p>
             <p class="profile__contact"><strong>Email: </strong><input name="email" type="text" value="<?php echo $_SESSION['user']['email']; ?>" disabled></p>
             <p class="profile__contact"><strong>Phone Number: </strong> <input type="text" name="tel" value="<?php echo $_SESSION['user']['tel']; ?>" disabled></p>
-            <p><?php var_dump( $_SESSION['user']); ?></p>
         </div>
         <input id="editButton" type="button" name="submit" value="Rediģēt?">
         <input id="submitButton" type="submit" name="submit" value="Saglabāt" disabled>
