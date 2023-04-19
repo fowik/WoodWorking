@@ -15,6 +15,18 @@ class ClassSession{
         ];
     }
 
+    public static function setEditUser($obj) {
+        $_SESSION['user'] = [
+            'id' => $obj[0],
+            'username' => $obj[1],
+            'name' => $obj[2],
+            'surname' => $obj[3],
+            'email' => $obj[4],
+            'tel' => $obj[5],
+            'admin' => $obj[7]
+        ];
+    }
+
     public static function destroy() {
         unset($_SESSION['user']);
     }

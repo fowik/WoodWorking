@@ -28,9 +28,10 @@ class ClassLoginForm extends DatabaseConnection {
                 $email = $row['Email'];
                 $tel = $row['PhoneNumber'];
                 $password = $row['Password'];
+                $admin = $row['isAdmin'];
 
                 if (password_verify($this->password, $password)) {
-                    $this->uData = [$id, $username, $name, $surname, $email, $tel];
+                    $this->uData = [$id, $username, $name, $surname, $email, $tel, $admin];
                     return $this->uData;
                 } else {
                     $_SESSION["message"] = 'Lietotājvārds vai parole ir nepareiza!';
@@ -59,8 +60,9 @@ class ClassLoginForm extends DatabaseConnection {
                 $email = $row['Email'];
                 $tel = $row['PhoneNumber'];
                 $password = $row['Password'];
+                $admin = $row['isAdmin'];
 
-                $uData = [$id, $username, $name, $surname, $email, $tel, $password];
+                $uData = [$id, $username, $name, $surname, $email, $tel, $password, $admin];
                 return $uData;
             }
         }

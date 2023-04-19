@@ -22,6 +22,13 @@
                 <a href="/"><h1>Danfort</h1></a>
                 <div class="links">
                     <ul>
+                    <li><?php
+                        if (isset($_SESSION['user'])) {
+                            if ($_SESSION['user']['admin'] === 1) {
+                                echo '<a href="/control-panel">Controle Panel</a>';
+                            } 
+                        }
+                        ?></li>
                         <li><?php
                         if (isset($_SESSION['user'])) {
                             echo '<a href="/profile">Profils</a>';
