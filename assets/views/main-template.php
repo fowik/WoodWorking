@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1080px, initial-scale=1.0">
     <!-- LINKS -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/nav-bar.css">
     <link rel="stylesheet" href="assets/css/footer.css">
@@ -26,7 +27,7 @@
                     <li><?php
                         if (isset($_SESSION['user'])) {
                             if ($_SESSION['user']['admin'] === 1) {
-                                echo '<a href="/control-panel">Controle Panel</a>';
+                                echo '<a href="/control-panel">Control Panel</a>';
                             } 
                         }
                         ?></li>

@@ -40,6 +40,8 @@
     width: calc(100% - 300px);
     left: 300px;
     position: absolute;
+    background-color: #f3f4f6;
+    height: 100%;
 }
 
 #interface .navigation {
@@ -83,4 +85,130 @@
     color: #111827;
     font-weight: 300;
     margin-right: 10px;
+}
+
+.i-name {
+    color: #444a53;
+    padding: 30px 30px 0 30px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.values {
+    padding: 30px 0 0 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.values .val-box {
+    background: #fff;
+    width: 235px;
+    padding: 16px 20px;
+    margin-right: 40px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.values .val-box:nth-child(1) i {
+    background-color: #7b74ec;
+}
+
+.values .val-box:nth-child(2) i {
+    background-color: #f7b924;
+}
+
+.values .val-box:nth-child(3) i {
+    background-color: #f74e4e;
+}
+
+.values .val-box:nth-child(4) i {
+    background-color: #e45d99;
+}
+.values .val-box:nth-child(5) i {
+    background-color: #4e73df;
+}
+
+.values .val-box i {
+    font-size: 25px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.values .val-box h3 {
+    margin-top: 0px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.values .val-box span {
+    font-size: 15px;
+    color: #828997;
+}
+
+.board {
+    width: 95.7%;
+    margin: 30px 0 30px 30px;
+    overflow: auto;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.board h5 {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.board p {
+    font-weight: 400;
+    font-size: 13px;
+    color: #787d8d;
+}
+
+.board .people {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: start;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid #eef0f3;
+}
+
+thead td {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    background: #f9fafb;
+    text-align: start;
+    padding: 15px;
+}
+
+tbody tr td{
+    padding: 10px 15px;
+}
+
+.activee p{
+    background: #d7fada;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 40px;
+    color: #2b2b2b;
+}
+
+.edit a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #554cd1;
+    font-weight: 600;
 }
