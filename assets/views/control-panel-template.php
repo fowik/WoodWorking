@@ -1,4 +1,3 @@
-
 <section id="menu">
     <div class="menu">
         <div class="logo">
@@ -7,14 +6,15 @@
     </div>
 
     <div class="items">
-        <li><a href="">Dashboard</a></li>
-        <li><a href="">Products list</a></li>
-        <li><a href="">Add manager</a></li>
-        <li><a href="">Tabels</a></li>
-        <li><a href="">Tabels</a></li>
-        <li><a href="">Tabels</a></li>
-        <li><a href="">Tabels</a></li>
-        <li><a href="">Tabels</a></li>
+        <li><a href="control-panel">Dashboard</a></li>
+        <li class="dropdown">
+            <a href="control-panel/products">Products list</a>
+            <div class="dropdown-content">
+                <a href="/control-panel/products/type-add">Add type</a>
+                <a href="/control-panel/products/add">Add product</a>
+            </div>
+        </li>
+        <li><a href="contorl-panel/managers">Managers list</a></li>
     </div>
 </section>
 <section id="interface">
@@ -40,7 +40,7 @@
         <div class="val-box">
             <i></i>
             <div>
-                <h3>8,267</h3>
+                <h3><?php echo 8282 ?></h3>
                 <span>New Users</span>
             </div>
         </div>
