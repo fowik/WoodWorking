@@ -161,12 +161,12 @@
 
 .board h5 {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .board p {
     font-weight: 400;
-    font-size: 13px;
+    font-size: 18px;
     color: #787d8d;
 }
 
@@ -186,7 +186,7 @@ tr {
 }
 
 thead td {
-    font-size: 14px;
+    font-size: 20px;
     text-transform: uppercase;
     font-weight: 400;
     background: #f9fafb;
@@ -206,11 +206,24 @@ tbody tr td{
     color: #2b2b2b;
 }
 
-.edit a {
+.edit a  {
     text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
     color: #554cd1;
     font-weight: 600;
+    text-align: end;
+}
+
+.edit input {
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #f74e4e;
+    font-weight: 600;
+    text-align: end;
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 
 .prod-add form {
@@ -220,6 +233,20 @@ tbody tr td{
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.prod-add textarea {
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 40%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.4;
+    box-sizing: border-box;
 }
 
 .prod-add input[type="text"],
@@ -295,4 +322,14 @@ select {
   font-size: 16px;
   line-height: 1.4;
   box-sizing: border-box;
+}
+
+.message {
+    padding: 30px 0 0 30px;
+}
+
+.mesg {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
 }

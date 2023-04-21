@@ -29,8 +29,21 @@
             <p><?php echo $_SESSION['user']['username']?></p>
         </div>
     </div>
-
+    <div class="message">
+        <div class="mesg">
+            <?php
+                if (isset($_SESSION['message'])) {
+                echo '
+                    <div class = msg-cover>
+                        <p class="msg"> ' . $_SESSION['message'] .'</p>
+                    </div>';
+                }
+                unset($_SESSION['message']);
+            ?>
+        </div>
+    </div>
     <div class="values">
+        
         <form action="/control-panel/products/type-add" method="POST" class="type-add">
             <input type="text" name="type" placeholder="Tipa nosaukums">
             <input type="submit" value="Pievienot produktu">

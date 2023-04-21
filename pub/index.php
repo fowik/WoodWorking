@@ -47,6 +47,11 @@ $router->map('GET', '/control-panel/products/add', [App\Controller\ControlPanelC
 $router->map('POST', '/control-panel/products/add', [App\Controller\ControlPanelController::class, 'addProduct']);
 $router->map('GET', '/control-panel/products/type-add', [App\Controller\ControlPanelController::class, 'addProductType']);
 $router->map('POST', '/control-panel/products/type-add', [App\Controller\ControlPanelController::class, 'addProductType']);
+$router->map('GET', '/control-panel/products/delete', [App\Controller\ControlPanelController::class, 'deleteProduct']);
+$router->map('POST', '/control-panel/products/delete', [App\Controller\ControlPanelController::class, 'deleteProduct']);
+$router->map('POST', '/control-panel/delete', [App\Controller\ControlPanelController::class, 'deleteUser']);
+$router->map('GET', '/control-panel/delete', [App\Controller\ControlPanelController::class, 'deleteUser']);
+
 
 
 // $router->map('GET', '/control-panel/users', App\Controller\ControlPanelUsersController::class);

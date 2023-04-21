@@ -115,8 +115,11 @@
                         </td>
 
                         <td class="edit">
-                            <a href="#">Edit</a>
-                            <a href="#">Delete</a>
+                            <form action="/control-panel/delete" method="POST">
+                                <input type="hidden" name="uID" value="<?= $user['uID'] ?>">
+                                <a href="/control-panel/products/edit">Edit</a>
+                                <input type="submit" value="Delete"></input>
+                            </form>
                         </td>
                     </tr>
                 </tbody>

@@ -29,16 +29,29 @@
             <p><?php echo $_SESSION['user']['username']?></p>
         </div>
     </div>
-
-    <div class="values">
+    <div class="message">
+            <div class="mesg">
+                <?php
+                    if (isset($_SESSION['message'])) {
+                    echo '
+                        <div class = msg-cover>
+                        <p class="msg"> ' . $_SESSION['message'] .'</p>
+                        </div>';
+                    }
+                    unset($_SESSION['message']);
+                ?>
+            </div>
+        </div>
+    <div class="values">        
         <form action="/control-panel/products/add" method="POST" class="prod-add">
-            <input type="text" name="title" placeholder="Produkta nosaukums">
-            <input type="text" name="description" placeholder="Produkta apraksts">
-            <input type="number" name="price" placeholder="Produkta cena">
+            <input type="text" name="title" maxlength="40" placeholder="Produkta nosaukums">
+            <textarea name="description" maxlength="1000" placeholder="Produkta apraksts"></textarea>
+            <input type="text" name="price" placeholder="0.00" inputmode="numeric" pattern="^\d{1,4}([,.]?\d{0,2})?$" oninput="javascript: this.value = this.value.replace(',', '.'); var parts = this.value.split('.'); if (parts.length > 2) { parts.pop(); this.value = parts.join('.') } else if (parts.length == 2) { if (parts[0].length > 4) parts[0] = parts[0].slice(0, 4); if (parts[1].length > 2) parts[1] = parts[1].slice(0, 2); this.value = parts.join('.'); } else if (this.value.length > 4) { this.value = this.value.slice(0, 4); }">
             <input type="hidden" name="catID" placeholder="Produkta kategorija">
-            <select name="catID" id="">
+            <select name="catID">
+                <option value="Produkta tips" disabled selected>Produkta tips</option>
                 <?php foreach ($types as $category) { ?>
-                    <option value="<?= $category['catID'] ?>">
+                    <option value="<?= $category['catID'] ?>" placeholder="Produkta tips">
                         <?php echo $category['Type'] ?>
                     </option>
                 <?php } ?>

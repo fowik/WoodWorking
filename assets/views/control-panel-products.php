@@ -57,11 +57,15 @@
                             <td class="role">
                                 <p><?= $product['Price'] ?></p>
                             </td>
-
-                            <td class="edit">
-                                <a href="#">Edit</a>
-                                <a href="#">Delete</a>
-                            </td>
+                            
+                                <td class="edit">
+                                    <form action="/control-panel/products/delete" method="POST">
+                                        <input type="hidden" name="prodID" value="<?= $product['prodID'] ?>">
+                                        <a href="/control-panel/products/edit">Edit</a>
+                                        <input type="submit" value="Delete"></input>
+                                    </form>
+                                </td>
+                            
                         </tr>
                     </tbody>
                 <?php } ?>
