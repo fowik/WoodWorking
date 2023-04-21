@@ -2,7 +2,6 @@
 
 namespace App\Class;
 
-use App\Class\ClassDatabase;
 use App\DatabaseConnection;
 
 class ClassControlPanel {

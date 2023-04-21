@@ -9,10 +9,10 @@ use Laminas\Diactoros\Response;
 
 abstract class DefaultController    
 {
-    protected $database;
+    protected $conn;
     public function __construct()
     {
-        $this->database = new DatabaseConnection();
+        $this->conn = new DatabaseConnection();
     }
 
     protected function renderTemplate(string $templatePath, $args = [], $baseTemplate = '') 

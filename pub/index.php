@@ -9,6 +9,9 @@ require_once __DIR__ . '/../bootstrap.php';
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Symfony\Component\ErrorHandler\Debug;
+use League\Route\Http\Exception\NotFoundException;
+use Laminas\Diactoros\Response;
+use Laminas\Diactoros\Response\RedirectResponse;
 
 Debug::enable();
 
@@ -26,6 +29,7 @@ $router = new League\Route\Router;
 
 // map a route
 $router->map('GET', '/', App\Controller\HomeController::class);
+$router->map('GET', '/404', [App\Controller\HomeController::class, 'error']);
 // register and routes
 $router->map('GET', '/register', App\Controller\RegisterController::class);
 $router->map('POST', '/register', App\Controller\RegisterController::class);
@@ -58,7 +62,12 @@ $router->map('POST', '/control-panel/products/type-add', [App\Controller\Control
 // $router->map('POST', '/profile/change-email', App\Controller\ProfileChangeEmailController::class);
 $router->map('GET', '/contact-us', App\Controller\ContactController::class);
 
-$response = $router->dispatch($request);
+try {
+    $response = $router->dispatch($request);
+} catch (NotFoundException $e) {
+    $response = new RedirectResponse('/404');
+    // $response->getBody()->write('Page not found');
+}
 
 // send the response to the browser
 (new Laminas\HttpHandlerRunner\Emitter\SapiEmitter)->emit($response);

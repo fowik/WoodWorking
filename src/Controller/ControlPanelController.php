@@ -19,7 +19,6 @@ class ControlPanelController extends DefaultController
         return $this->renderTemplate('control-panel-template.php', 
         [
             'uCount' => $obj->getUserCount(),
-
             'users'=> $obj->getUsers()
         ]);
     }

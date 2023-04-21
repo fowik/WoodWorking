@@ -18,4 +18,9 @@ class HomeController extends DefaultController
         return $this->renderTemplate('home-template.php');
     }
 
+    public function error(ServerRequestInterface $request) : ResponseInterface
+    {
+        return $this->renderTemplate('error-template.php');
+    }
+
 }
