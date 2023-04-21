@@ -19,6 +19,7 @@
         </li>
         <li><a href="/control-panel/managers">Managers list</a></li>
     </div>
+    
 </section>
 <section id="interface">
     <div class="navigation">

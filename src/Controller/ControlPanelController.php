@@ -7,6 +7,7 @@ namespace App\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Laminas\Diactoros\Response;  
+use App\Class\ClassSessionCheck;
 use App\Class\ClassControlPanel;
 use App\Class\ClassAdd;
 use App\Class\ClassDelete;
@@ -15,6 +16,9 @@ class ControlPanelController extends DefaultController
 {
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+
         $obj = new ClassControlPanel();
 
         return $this->renderTemplate('control-panel-template.php', 
@@ -26,6 +30,9 @@ class ControlPanelController extends DefaultController
 
     public function showProducts(ServerRequestInterface $request): ResponseInterface
     {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+
         $obj = new ClassControlPanel();
         
         return $this->renderTemplate('control-panel-products.php',
@@ -36,6 +43,9 @@ class ControlPanelController extends DefaultController
     
     public function addProduct(ServerRequestInterface $reqyest): ResponseInterface
     {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+
         if (!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['catID'])){
             $obj = new ClassAdd();
             $obj->addProd();
@@ -48,6 +58,9 @@ class ControlPanelController extends DefaultController
 
     public function addProductType(ServerRequestInterface $request): ResponseInterface
     {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+
         if (! empty($_POST['type'])){
             $obj = new ClassAdd();
             $obj->addType();
@@ -58,6 +71,9 @@ class ControlPanelController extends DefaultController
 
     public function deleteProduct(ServerRequestInterface $request): ResponseInterface
     {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+
         $obj = new ClassDelete();
         $obj->deleteProduct();
 
@@ -66,6 +82,9 @@ class ControlPanelController extends DefaultController
 
     public function deleteUser(ServerRequestInterface $request): ResponseInterface
     {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+        
         $obj = new ClassDelete();
         $obj->deleteUser();
 

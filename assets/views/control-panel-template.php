@@ -6,15 +6,18 @@
     </div>
 
     <div class="items">
-        <li><a href="control-panel">Dashboard</a></li>
+        <li><a href="/control-panel">Dashboard</a></li>
         <li class="dropdown">
             <a href="/control-panel/products">Products list</a>
-            <div class="dropdown-content">
-                <a href="/control-panel/products/type-add">Add type</a>
-                <a href="/control-panel/products/add">Add product</a>
-            </div>
+            <ul class="dropdown-content">
+                <li>
+                    <a href="/control-panel/products/type-add">Add type</a>
+                </li>
+                <li>
+                    <a href="/control-panel/products/add">Add product</a></li>
+            </ul>
         </li>
-        <li><a href="control-panel/managers">Managers list</a></li>
+        <li><a href="/control-panel/managers">Managers list</a></li>
     </div>
 </section>
 <section id="interface">
