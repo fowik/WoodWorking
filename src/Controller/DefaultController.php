@@ -15,17 +15,23 @@ abstract class DefaultController
         $this->database = new DatabaseConnection();
     }
 
-    protected function renderTemplate(string $templatePath) 
+    protected function renderTemplate(string $templatePath, $args = [], $baseTemplate = '') 
     {
+        extract($args, EXTR_SKIP);
+
         ob_start();
         require sprintf(__DIR__ . '/../../assets/views/%s', $templatePath);
         $view = ob_get_clean();
-
+        
         ob_start();
+
+        if (! empty($baseTemplate)) {
+            require sprintf(__DIR__ . '/../../assets/views/control-panel-template');
+        }
+        
         require __DIR__ . '/../../assets/views/main-template.php';
         $main = ob_get_clean();
 
-        
         $response = new Response();
         $response->getBody()->write(str_replace('{{ content }}', $view, $main));
 

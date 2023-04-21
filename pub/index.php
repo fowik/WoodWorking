@@ -8,6 +8,9 @@ require_once __DIR__ . '/../bootstrap.php';
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\ErrorHandler\Debug;
+
+Debug::enable();
 
 if(str_contains($uri, '.css') || str_contains($uri, '.js')) {
     return false;
@@ -23,18 +26,25 @@ $router = new League\Route\Router;
 
 // map a route
 $router->map('GET', '/', App\Controller\HomeController::class);
+// register and routes
 $router->map('GET', '/register', App\Controller\RegisterController::class);
 $router->map('POST', '/register', App\Controller\RegisterController::class);
 $router->map('GET', '/login', App\Controller\LoginController::class);
 $router->map('POST', '/login', App\Controller\LoginController::class);
+// profile routes
 $router->map('GET', '/logout', App\Controller\LogoutController::class);
 $router->map('GET', '/profile', App\Controller\ProfileController::class);
-$router->map('GET', '/profile/edit', App\Controller\ProfileEditController::class);
-$router->map('POST', '/profile/edit', App\Controller\ProfileEditController::class);
+$router->map('GET', '/profile/edit', [App\Controller\ProfileController::class, 'editUser']);
+$router->map('POST', '/profile/edit', [App\Controller\ProfileController::class, 'editUser']);
+// control panel routes
 $router->map('GET', '/control-panel', App\Controller\ControlPanelController::class);
-$router->map('GET', '/control-panel/products', App\Controller\ControlPanelProductController::class);
-$router->map('GET', '/control-panel/products/add', App\Controller\ControlPanelProductAddController::class);
-$router->map('GET', '/control-panel/products/type-add', App\Controller\ControlPanelProductTypeAddController::class);
+$router->map('GET', '/control-panel/products', [App\Controller\ControlPanelController::class, 'showProducts']);
+$router->map('GET', '/control-panel/products/add', [App\Controller\ControlPanelController::class, 'addProduct']);
+$router->map('POST', '/control-panel/products/add', [App\Controller\ControlPanelController::class, 'addProduct']);
+$router->map('GET', '/control-panel/products/type-add', [App\Controller\ControlPanelController::class, 'addProductType']);
+$router->map('POST', '/control-panel/products/type-add', [App\Controller\ControlPanelController::class, 'addProductType']);
+
+
 // $router->map('GET', '/control-panel/users', App\Controller\ControlPanelUsersController::class);
 // $router->map('GET', '/control-panel/users/edit', App\Controller\ControlPanelUsersEditController::class);
 // $router->map('POST', '/control-panel/users/edit', App\Controller\ControlPanelUsersEditController::class);

@@ -8,7 +8,7 @@
     <div class="items">
         <li><a href="/control-panel">Dashboard</a></li>
         <li class="dropdown">
-            <a href="control-panel/products">Products list</a>
+            <a href="/control-panel/products">Products list</a>
             <div class="dropdown-content">
                 <a href="/control-panel/products/type-add">Add type</a>
                 <a href="/control-panel/products/add">Add product</a>
@@ -31,8 +31,8 @@
     </div>
 
     <div class="values">
-        <form action="/control-panel/products/type-add" method="POST">
-            <input type="text" value="Tipa nosaukums">
+        <form action="/control-panel/products/type-add" method="POST" class="type-add">
+            <input type="text" name="type" placeholder="Tipa nosaukums">
             <input type="submit" value="Pievienot produktu">
         </form>
     </div>

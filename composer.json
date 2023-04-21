@@ -12,7 +12,8 @@
         "league/route": "^5.1",
         "laminas/laminas-diactoros": "^2.24",
         "laminas/laminas-httphandlerrunner": "^2.5",
-        "laminas/laminas-view": "^2.27"
+        "laminas/laminas-view": "^2.27",
+        "symfony/error-handler": "^6.2"
     },
     "autoload": {
         "psr-4": {
