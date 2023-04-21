@@ -14,13 +14,15 @@ class ClassAdd {
             $price = $_POST['price'];
             $category = $_POST['catID'];
 
-            $sql = "SELECT * FROM product WHERE title = '$title'";
+            $sql = "SELECT * FROM `product` WHERE `Title` = '$title'";
             $result = $conn->query($sql);
             if ($result->rowCount() > 0 && $title != "" && $title != null && $description != "" && $description != null && $price != "" && $price != null && $category != "" && $category != null) {
                 $_SESSION['message'] = "Šāds produkts jau eksistē!";
             } else {
                 $conn->query("INSERT INTO `product` (`Title`, `Description`, `Price`, `catID`) VALUES ('$title', '$description', '$price', '$category')");
             }
+        } else {
+            $_SESSION['message'] = 'Lūdzu aizpildiet visus laukus!';
         }
     }
 
@@ -37,6 +39,8 @@ class ClassAdd {
             } else {
                 $_SESSION['message'] = "Šī kategorija jau eksistē!";
             }
+        } else {
+            $_SESSION['message'] = 'Lūdzu aizpildiet visus laukus!';
         }
     }
 

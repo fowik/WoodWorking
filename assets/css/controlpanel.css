@@ -19,11 +19,19 @@
 
 #menu .items li {
     list-style: none;
-    padding: 15px 0 10px 30px;
+    padding: 15px 0 15px 30px;
 }
 
 #menu .items li:hover {
     background: #253047;
+}
+
+#menu .items .dropdown li a {
+    margin-bottom: 15px;
+}
+
+#menu .items li:hover {
+    /* background: #253047; */
     cursor: pointer;
 }
 #menu .items li:nth-child(1){
@@ -34,6 +42,54 @@
     text-decoration: none;
     color: rgb(134, 141, 151);
     font-weight: 300px;
+    left: 0;
+    padding: 0 10px 0 10px;
+}
+
+/* Style the dropdown menu */
+
+.items ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.items li {
+    position: relative;
+}
+  
+.items li a {
+    display: block;
+    padding: 10px 10px 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.items .dropdown-content {
+    display: none;
+    width: 300px;
+    position: relative;
+    top: 100%;
+    left: -32px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 160px;
+    margin-bottom: 0;
+}
+  
+.items .dropdown:hover .dropdown-content {
+    display: block;
+}
+  
+.items .dropdown-content a {
+    display: block;
+    /* padding: 30px 30px 30px 30px; */
+    text-decoration: none;
+    color: #333;
+    text-align: left;
+    margin-left: 30px;
 }
 
 #interface {

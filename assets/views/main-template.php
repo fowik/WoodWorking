@@ -43,9 +43,9 @@
                         <li><a href="">Partneri</a></li>
                         <li><a href="">Produkcijas katalogs</a></li>
                         <li><a href="/contact-us">Kontakti</a></li>
-                        <li class="dropdown">
+                        <li class="dropdown-navbar">
                             <a href="">Preču katalogs</a>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content-navbar">
                                 <a href="">Apdares dēļi(vagondēļi)</a>
                                 <a href="">Block-house(guļbūves baļķu imitācija)</a>
                                 <a href="">Grīdas dēļi</a>

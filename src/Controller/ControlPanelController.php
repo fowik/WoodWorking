@@ -39,8 +39,6 @@ class ControlPanelController extends DefaultController
         if (!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['catID'])){
             $obj = new ClassAdd();
             $obj->addProd();
-        } else {
-            $_SESSION['message'] = 'Lūdzu aizpildiet visus laukus!';
         }
 
         $obj = new ClassAdd();
@@ -53,8 +51,6 @@ class ControlPanelController extends DefaultController
         if (! empty($_POST['type'])){
             $obj = new ClassAdd();
             $obj->addType();
-        } else {
-            $_SESSION['message'] = 'Lūdzu aizpildiet visus laukus';
         }
         
         return $this->renderTemplate('control-panel-add-type.php');

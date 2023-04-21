@@ -9,10 +9,13 @@
         <li><a href="/control-panel">Dashboard</a></li>
         <li class="dropdown">
             <a href="/control-panel/products">Products list</a>
-            <div class="dropdown-content">
-                <a href="/control-panel/products/type-add">Add type</a>
-                <a href="/control-panel/products/add">Add product</a>
-            </div>
+            <ul class="dropdown-content">
+                <li>
+                    <a href="/control-panel/products/type-add">Add type</a>
+                </li>
+                <li>
+                    <a href="/control-panel/products/add">Add product</a></li>
+            </ul>
         </li>
         <li><a href="/control-panel/managers">Managers list</a></li>
     </div>
@@ -43,10 +46,9 @@
         </div>
     </div>
     <div class="values">
-        
         <form action="/control-panel/products/type-add" method="POST" class="type-add">
             <input type="text" name="type" placeholder="Tipa nosaukums">
-            <input type="submit" value="Pievienot produktu">
+            <input type="submit" value="Pievienot tipu">
         </form>
     </div>
 </section>
