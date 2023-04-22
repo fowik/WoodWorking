@@ -59,7 +59,8 @@ $router->map('GET', '/control-panel/edit-user', [App\Controller\ControlPanelCont
 $router->map('POST', '/control-panel/edit-user', [App\Controller\ControlPanelController::class, 'showEditUser']);
 $router->map('GET', '/control-panel/user/edit', [App\Controller\ControlPanelController::class, 'EditUser']);
 $router->map('POST', '/control-panel/user/edit', [App\Controller\ControlPanelController::class, 'EditUser']);
-
+// catalog routes
+$router->map('GET', '/catalog', App\Controller\CatalogController::class);
 
 
 // $router->map('GET', '/control-panel/users', App\Controller\ControlPanelUsersController::class);
