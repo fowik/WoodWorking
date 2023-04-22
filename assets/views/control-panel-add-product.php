@@ -8,13 +8,14 @@
     <div class="items">
         <li><a href="/control-panel">Dashboard</a></li>
         <li class="dropdown">
-            <a href="/control-panel/products">Products list</a>
+            <a href="/control-panel/products" class="dropping">Products list</a>
             <ul class="dropdown-content">
                 <li>
                     <a href="/control-panel/products/type-add">Add type</a>
                 </li>
                 <li>
-                    <a href="/control-panel/products/add">Add product</a></li>
+                    <a href="/control-panel/products/add">Add product</a>
+                </li>
             </ul>
         </li>
         <li><a href="/control-panel/managers">Managers list</a></li>
@@ -46,7 +47,7 @@
             </div>
         </div>
     <div class="values">        
-        <form action="/control-panel/products/add" method="POST" class="prod-add">
+        <form action="/control-panel/products/add" method="POST" enctype="multipart/form-data" class="prod-add">
             <input type="text" name="title" maxlength="40" placeholder="Produkta nosaukums">
             <textarea name="description" maxlength="1000" placeholder="Produkta apraksts"></textarea>
             <input type="text" name="price" placeholder="0.00" inputmode="numeric" pattern="^\d{1,4}([,.]?\d{0,2})?$" oninput="javascript: this.value = this.value.replace(',', '.'); var parts = this.value.split('.'); if (parts.length > 2) { parts.pop(); this.value = parts.join('.') } else if (parts.length == 2) { if (parts[0].length > 4) parts[0] = parts[0].slice(0, 4); if (parts[1].length > 2) parts[1] = parts[1].slice(0, 2); this.value = parts.join('.'); } else if (this.value.length > 4) { this.value = this.value.slice(0, 4); }">
@@ -59,6 +60,7 @@
                     </option>
                 <?php } ?>
             </select>
+            <input type="file" name="image" placeholder="Produkta bilde">
             <input type="submit" value="Pievienot produktu">
         </form>
     </div>

@@ -8,17 +8,19 @@
     <div class="items">
         <li><a href="/control-panel">Dashboard</a></li>
         <li class="dropdown">
-            <a href="/control-panel/products">Products list</a>
+            <a href="/control-panel/products" class="dropping">Products list</a>
             <ul class="dropdown-content">
                 <li>
                     <a href="/control-panel/products/type-add">Add type</a>
                 </li>
                 <li>
-                    <a href="/control-panel/products/add">Add product</a></li>
+                    <a href="/control-panel/products/add">Add product</a>
+                </li>
             </ul>
         </li>
         <li><a href="/control-panel/managers">Managers list</a></li>
     </div>
+
 </section>
 <section id="interface">
     <div class="navigation">
@@ -119,8 +121,7 @@
 
                         <td class="edit">
                             <form action="/control-panel/delete" method="POST">
-                                <input type="hidden" name="uID" value="<?= $user['uID'] ?>">
-                                <a href="/control-panel/products/edit">Edit</a>
+                                <a href="/control-panel/edit-user?uID=<?= $user['uID'] ?>">Edit</a>
                                 <input type="submit" value="Delete"></input>
                             </form>
                         </td>

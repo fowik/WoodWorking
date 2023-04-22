@@ -13,17 +13,29 @@ class ClassAdd {
             $description = $_POST['description'];
             $price = $_POST['price'];
             $category = $_POST['catID'];
+            $img_type = substr($_FILES['image']['type'], 0, 5);
+            $img_size = 10*1024*1024;
 
             $sql = "SELECT * FROM `product` WHERE `Title` = '$title'";
             $result = $conn->query($sql);
             if ($result->rowCount() > 0 && $title != "" && $title != null && $description != "" && $description != null && $price != "" && $price != null && $category != "" && $category != null) {
                 $_SESSION['message'] = "Šāds produkts jau eksistē!";
             } else {
-                $conn->query("INSERT INTO `product` (`Title`, `Description`, `Price`, `catID`) VALUES ('$title', '$description', '$price', '$category')");
+                if (!empty($_FILES['image']['tmp_name']) && $img_type ==='image' && $_FILES['image']['size'] <= $img_size) { 
+                    $img = file_get_contents($_FILES['image']['tmp_name']);
+                    $stmt = $conn->prepare("INSERT INTO `product` (`Title`, `Description`, `Price`, `Image`, `catID`) VALUES (?, ?, ?, ?, ?)");
+                    $stmt->bindParam(1, $title);
+                    $stmt->bindParam(2, $description);
+                    $stmt->bindParam(3, $price);
+                    $stmt->bindParam(4, $img);
+                    $stmt->bindParam(5, $category);
+                    $stmt->execute();
+                    $_SESSION['message'] = "Produkts pievienots!";
+                } else {
+                    $_SESSION['message'] = 'Lūdzu aizpildiet visus laukus!';
+                }
             }
-        } else {
-            $_SESSION['message'] = 'Lūdzu aizpildiet visus laukus!';
-        }
+        } 
     }
 
     public function addType() {
@@ -52,4 +64,6 @@ class ClassAdd {
         
         return $result->fetchAll();
     }
+
+    
 }

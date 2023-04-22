@@ -11,6 +11,7 @@ use App\Class\ClassSessionCheck;
 use App\Class\ClassControlPanel;
 use App\Class\ClassAdd;
 use App\Class\ClassDelete;
+use App\Class\ClassEdit;
 
 class ControlPanelController extends DefaultController
 {
@@ -46,9 +47,11 @@ class ControlPanelController extends DefaultController
         $obj = new ClassSessionCheck();
         $obj->LoggedAdminSessionCheck();
 
-        if (!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['catID'])){
+        if (!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['catID']) && !empty($_FILES['image'])){
             $obj = new ClassAdd();
             $obj->addProd();
+        } else {
+            $_SESSION['message'] = 'Lūdzu aizpildiet visus laukus!';
         }
 
         $obj = new ClassAdd();
@@ -87,6 +90,55 @@ class ControlPanelController extends DefaultController
         
         $obj = new ClassDelete();
         $obj->deleteUser();
+
+        return new Response\RedirectResponse('/control-panel');
+    }
+
+    public function showEditProduct(ServerRequestInterface $request): ResponseInterface
+    {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+
+        $obj = new ClassEdit();
+
+        return $this->renderTemplate('control-panel-edit-product.php', [
+            'types' => $obj->getTypes(),
+            'product' => $obj->getProd()
+        ]);
+    }
+
+    public function EditProduct(ServerRequestInterface $request): ResponseInterface
+    {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+        
+        $obj = new ClassEdit();
+        if (!empty($_POST)){
+            $obj->editProd();
+        } 
+
+        return new Response\RedirectResponse('/control-panel/products');
+    }
+
+    public function showEditUser(ServerRequestInterface $request): ResponseInterface
+    {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+
+        $obj = new ClassEdit();
+
+        return $this->renderTemplate('control-panel-edit-user.php', ['user' => $obj->getUser()]);
+    }
+
+    public function EditUser(ServerRequestInterface $request): ResponseInterface
+    {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+
+        $obj = new ClassEdit();
+        if (!empty($_POST)){
+            $obj->editUser();
+        }
 
         return new Response\RedirectResponse('/control-panel');
     }

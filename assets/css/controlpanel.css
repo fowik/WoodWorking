@@ -82,14 +82,21 @@
 .items .dropdown:hover .dropdown-content {
     display: block;
 }
-  
-.items .dropdown-content a {
+
+.dropping {
     display: block;
-    /* padding: 30px 30px 30px 30px; */
+    margin-bottom: 15px;
     text-decoration: none;
     color: #333;
     text-align: left;
-    margin-left: 30px;
+}
+  
+.items .dropdown-content a {
+    display: block;
+}
+
+.items .dropdown-content:hover {
+    background-color: #f1f1f1;
 }
 
 #interface {
@@ -307,6 +314,8 @@ tbody tr td{
 
 .prod-add input[type="text"],
 input[type="number"],
+input[type="file"],
+input[type="email"],
 select {
   display: block;
   width: 100%;

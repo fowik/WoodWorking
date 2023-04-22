@@ -8,17 +8,19 @@
     <div class="items">
         <li><a href="/control-panel">Dashboard</a></li>
         <li class="dropdown">
-            <a href="/control-panel/products">Products list</a>
+            <a href="/control-panel/products" class="dropping">Products list</a>
             <ul class="dropdown-content">
                 <li>
                     <a href="/control-panel/products/type-add">Add type</a>
                 </li>
                 <li>
-                    <a href="/control-panel/products/add">Add product</a></li>
+                    <a href="/control-panel/products/add">Add product</a>
+                </li>
             </ul>
         </li>
         <li><a href="/control-panel/managers">Managers list</a></li>
     </div>
+
 </section>
 <section id="interface">
     <div class="navigation">
@@ -41,6 +43,7 @@
                         <td>Title</td>
                         <td>Description</td>
                         <td>Price</td>
+                        <!-- <td>Category</td> -->
                         <td></td>
                     </tr>
                 </thead>
@@ -50,6 +53,8 @@
                             <td class="people">
                                 <div class="people-de">
                                     <h5><?= $product['Title'] ?></h5>
+                                    <!-- <?php $show_img = base64_encode($product['Image']) ?> -->
+                                    <!-- <img src="data:image/png;base64, <?= $show_img ?>" alt=""> -->
                                 </div>
                             </td>
 
@@ -57,17 +62,18 @@
                                 <h5><?= $product['Description'] ?></h5>
                             </td>
 
+
                             <td class="role">
                                 <p><?= $product['Price'] ?></p>
                             </td>
-                            
-                                <td class="edit">
-                                    <form action="/control-panel/products/delete" method="POST">
-                                        <input type="hidden" name="prodID" value="<?= $product['prodID'] ?>">
-                                        <a href="/control-panel/products/edit">Edit</a>
-                                        <input type="submit" value="Delete"></input>
-                                    </form>
-                                </td>
+                                
+                            <td class="edit">
+                                <form action="/control-panel/products/delete" method="POST">
+                                    <input type="hidden" name="prodID" value="<?= $product['prodID'] ?>">
+                                    <a href="/control-panel/products/edit?catID=<?=$product['catID']?>&prodID=<?=$product['prodID']?>">Edit</a>
+                                    <input type="submit" value="Delete"></input>
+                                </form>
+                            </td>
                             
                         </tr>
                     </tbody>

@@ -15,6 +15,36 @@ class ClassControlPanel {
         return $result->fetchColumn();
     }
 
+    public function getOrderCount()
+    {
+        $conn = new DatabaseConnection();
+
+        $sql = "SELECT COUNT(*) FROM `orders`";
+        $result = $conn->query($sql);
+        
+        return $result->fetchColumn();
+    }
+
+    public function getProdSellQuant()
+    {
+        $conn = new DatabaseConnection();
+
+        $sql = "SELECT SUM(`Quantity`) FROM `orders`";
+        $result = $conn->query($sql);
+        
+        return $result->fetchColumn();
+    }
+
+    public function getProdSellSum()
+    {
+        $conn = new DatabaseConnection();
+
+        $sql = "SELECT SUM(`Price`) FROM `product`";
+        $result = $conn->query($sql);
+        
+        return $result->fetchColumn();
+    }
+
     public function getUsers() {
         $conn = new DatabaseConnection();
 

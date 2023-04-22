@@ -30,7 +30,7 @@ $router = new League\Route\Router;
 // map a route
 $router->map('GET', '/', App\Controller\HomeController::class);
 $router->map('GET', '/404', [App\Controller\HomeController::class, 'error']);
-// register and routes
+// register and login routes
 $router->map('GET', '/register', App\Controller\RegisterController::class);
 $router->map('POST', '/register', App\Controller\RegisterController::class);
 $router->map('GET', '/login', App\Controller\LoginController::class);
@@ -51,6 +51,14 @@ $router->map('GET', '/control-panel/products/delete', [App\Controller\ControlPan
 $router->map('POST', '/control-panel/products/delete', [App\Controller\ControlPanelController::class, 'deleteProduct']);
 $router->map('POST', '/control-panel/delete', [App\Controller\ControlPanelController::class, 'deleteUser']);
 $router->map('GET', '/control-panel/delete', [App\Controller\ControlPanelController::class, 'deleteUser']);
+$router->map('GET', '/control-panel/products/edit', [App\Controller\ControlPanelController::class, 'showEditProduct']);
+$router->map('POST', '/control-panel/products/edit', [App\Controller\ControlPanelController::class, 'showEditProduct']);
+$router->map('GET', '/control-panel/product/product-edit', [App\Controller\ControlPanelController::class, 'EditProduct']);
+$router->map('POST', '/control-panel/product/product-edit', [App\Controller\ControlPanelController::class, 'EditProduct']);
+$router->map('GET', '/control-panel/edit-user', [App\Controller\ControlPanelController::class, 'showEditUser']);
+$router->map('POST', '/control-panel/edit-user', [App\Controller\ControlPanelController::class, 'showEditUser']);
+$router->map('GET', '/control-panel/user/edit', [App\Controller\ControlPanelController::class, 'EditUser']);
+$router->map('POST', '/control-panel/user/edit', [App\Controller\ControlPanelController::class, 'EditUser']);
 
 
 
