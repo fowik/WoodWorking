@@ -47,11 +47,9 @@ class ControlPanelController extends DefaultController
         $obj = new ClassSessionCheck();
         $obj->LoggedAdminSessionCheck();
 
-        if (!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['catID']) && !empty($_FILES['image'])){
+        if (!empty($_POST['title']) || !empty($_POST['price']) || !empty($_POST['description']) || !empty($_POST['catID'])){
             $obj = new ClassAdd();
             $obj->addProd();
-        } else {
-            $_SESSION['message'] = 'Lūdzu aizpildiet visus laukus!';
         }
 
         $obj = new ClassAdd();

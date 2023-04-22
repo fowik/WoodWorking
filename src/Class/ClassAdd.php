@@ -6,7 +6,7 @@ use App\DatabaseConnection;
 
 class ClassAdd {
     public function addProd() {
-        if (! empty($_POST)){
+        if (!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['catID']) && !empty($_FILES['image'])){
             $conn = new DatabaseConnection();
             
             $title = $_POST['title'];
@@ -18,7 +18,7 @@ class ClassAdd {
 
             $sql = "SELECT * FROM `product` WHERE `Title` = '$title'";
             $result = $conn->query($sql);
-            if ($result->rowCount() > 0 && $title != "" && $title != null && $description != "" && $description != null && $price != "" && $price != null && $category != "" && $category != null) {
+            if ($result->rowCount() > 0) {
                 $_SESSION['message'] = "Šāds produkts jau eksistē!";
             } else {
                 if (!empty($_FILES['image']['tmp_name']) && $img_type ==='image' && $_FILES['image']['size'] <= $img_size) { 
@@ -35,7 +35,9 @@ class ClassAdd {
                     $_SESSION['message'] = 'Lūdzu aizpildiet visus laukus!';
                 }
             }
-        } 
+        } else {
+            $_SESSION['message'] = 'Lūdzu aizpildiet visus laukus!';
+        }
     }
 
     public function addType() {
