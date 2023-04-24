@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1080px, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0">
     <!-- LINKS -->
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="/assets/css/login.css">
     <link rel="stylesheet" href="/assets/css/message.css">
     <link rel="stylesheet" href="/assets/css/controlpanel.css">
+    <link rel="stylesheet" href="/assets/css/catalog.css">
+    <link rel="stylesheet" href="/assets/css/prod-catalog.css">
     <!-- LINKS -->
     <title>Danfort</title>
 </head>
@@ -41,7 +43,7 @@
                         <li><a onclick="scrollToStart()">Sākumlapa</a></li>
                         <li><a onclick="scrollToAboutUs()">Par mums</a></li>
                         <li><a href="">Partneri</a></li>
-                        <li><a href="">Produkcijas katalogs</a></li>
+                        <li><a href="/catalog">Produkcijas katalogs</a></li>
                         <li><a href="/contact-us">Kontakti</a></li>
                         <li class="dropdown-navbar">
                             <a href="">Preču katalogs</a>

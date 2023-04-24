@@ -13,11 +13,22 @@ class CatalogController extends DefaultController
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {
         $obj = new ClassCatalog();
-        
+
         return $this->renderTemplate('catalog-template.php', 
         [
-            'products' => $obj->getProd(),
-            'types' => $obj->getTypes()
+            'types' => $obj->getTypes(),
+            'products' => $obj->getProdWType(),
+
+        ]);
+    }
+
+    public function showProduct(ServerRequestInterface $request): ResponseInterface
+    {
+        $obj = new ClassCatalog();
+        
+        return $this->renderTemplate('product-template.php', 
+        [
+            'product' => $obj->getProd()
         ]);
     }
 }

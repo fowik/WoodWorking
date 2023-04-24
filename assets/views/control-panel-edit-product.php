@@ -40,10 +40,10 @@
             <input name="prodID" type="hidden" value="<?= $product['prodID'] ?>">
             <input name="title" type="text" value="<?= $product['Title'] ?>" placeholder="Produkta nosaukums">
             <select name="catID">
-                <option value="<?= $product['catID'] ?>" selected><?=$product['Type']?></option>
+                <option value="<?= $product['catID'] ?>" selected><?=$product['type']?></option>
                 <?php foreach ($types as $cat) { ?>
                     <option value="<?= $cat['catID'] ?>">
-                        <?php echo $cat['Type'] ?>
+                        <?php echo $cat['type'] ?>
                     </option>
                 <?php } ?>
             </select>

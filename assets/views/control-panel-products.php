@@ -53,8 +53,6 @@
                             <td class="people">
                                 <div class="people-de">
                                     <h5><?= $product['Title'] ?></h5>
-                                    <!-- <?php $show_img = base64_encode($product['Image']) ?> -->
-                                    <!-- <img src="data:image/png;base64, <?= $show_img ?>" alt=""> -->
                                 </div>
                             </td>
 

@@ -51,7 +51,7 @@ class DatabaseConnection
             CREATE TABLE IF NOT EXISTS product (
                 prodID int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
                 Title varchar(30) NOT NULL,
-                Description varchar(255) NOT NULL,
+                Description varchar(1000) NOT NULL,
                 Price decimal(10,2) NOT NULL,
                 Image longblob NOT NULL,
                 catID int(11) UNSIGNED NOT NULL,

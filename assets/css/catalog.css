@@ -1,0 +1,42 @@
+.dropdownn a {
+    text-decoration: none;
+    color: #86939E;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 0;
+    display: block;
+    position: relative;
+    transition: all .5s;
+}
+
+.dropdownn a:hover {
+    color: #43484D;
+}
+
+.dropdown-containerr li {
+    color: #bbb;
+    font-size: 20px;
+    font-weight: 300;
+    text-decoration: none;
+    list-style: none;
+}
+
+.dropdown-containerr li:hover {
+    color: #43484D;
+}
+
+.dropdown-containerr li a{
+    color: #86939E;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: none;
+    padding: 10px 0;
+    display: block;
+    position: relative;
+    transition: all .5s;
+    text-decoration: none;
+}
+
