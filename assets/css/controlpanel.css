@@ -313,10 +313,10 @@ tbody tr td{
 }
 
 .prod-add input[type="text"],
-input[type="number"],
-input[type="file"],
-input[type="email"],
-select {
+.prod-add input[type="number"],
+.prod-add input[type="file"],
+.prod-add input[type="email"],
+.prod-add select {
   display: block;
   width: 100%;
   margin-bottom: 20px;

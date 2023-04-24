@@ -56,7 +56,7 @@
                 <option value="Produkta tips" disabled selected>Produkta tips</option>
                 <?php foreach ($types as $category) { ?>
                     <option value="<?= $category['catID'] ?>" placeholder="Produkta tips">
-                        <?php echo $category['Type'] ?>
+                        <?php echo $category['type'] ?>
                     </option>
                 <?php } ?>
             </select>

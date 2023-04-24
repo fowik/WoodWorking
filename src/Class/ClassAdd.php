@@ -50,6 +50,7 @@ class ClassAdd {
             
             if ($type != "" && $type != null && $result->rowCount() === 0){
                 $conn->query("INSERT INTO `producttype` (`type`) VALUES ('$type')");
+                $_SESSION['message'] = "Kategorija pievienota!";
             } else {
                 $_SESSION['message'] = "Šī kategorija jau eksistē!";
             }
