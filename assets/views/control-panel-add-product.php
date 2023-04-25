@@ -34,18 +34,18 @@
         </div>
     </div>
     <div class="message">
-            <div class="mesg">
-                <?php
-                    if (isset($_SESSION['message'])) {
-                    echo '
-                        <div class = msg-cover>
-                        <p class="msg"> ' . $_SESSION['message'] .'</p>
-                        </div>';
-                    }
-                    unset($_SESSION['message']);
-                ?>
-            </div>
+        <div class="mesg">
+            <?php
+                if (isset($_SESSION['message'])) {
+                echo '
+                    <div class = msg-cover>
+                    <p class="msg"> ' . $_SESSION['message'] .'</p>
+                    </div>';
+                }
+                unset($_SESSION['message']);
+            ?>
         </div>
+    </div>
     <div class="values">        
         <form action="/control-panel/products/add" method="POST" enctype="multipart/form-data" class="prod-add">
             <input type="text" name="title" maxlength="40" placeholder="Produkta nosaukums">

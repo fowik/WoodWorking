@@ -31,4 +31,13 @@ class CatalogController extends DefaultController
             'product' => $obj->getProd()
         ]);
     }
+
+    public function addToCart(ServerRequestInterface $request): ResponseInterface
+    {
+        $obj = new ClassCatalog();
+        $obj->addToCart();
+
+        exit();
+    }
 }
+    

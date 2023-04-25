@@ -60,6 +60,7 @@
                                 <a href="">Ēvelēti zāģmateriāli (Sibirijas lapēgle)</a>
                             </div>
                         </li>
+                        <li><a href="/cart">Groza</a></li>
                     </ul>
                 </div>
             </div>

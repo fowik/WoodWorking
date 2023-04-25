@@ -59,11 +59,24 @@ $router->map('GET', '/control-panel/edit-user', [App\Controller\ControlPanelCont
 $router->map('POST', '/control-panel/edit-user', [App\Controller\ControlPanelController::class, 'showEditUser']);
 $router->map('GET', '/control-panel/user/edit', [App\Controller\ControlPanelController::class, 'EditUser']);
 $router->map('POST', '/control-panel/user/edit', [App\Controller\ControlPanelController::class, 'EditUser']);
+
 // catalog routes
 $router->map('GET', '/catalog', App\Controller\CatalogController::class);
-$router->map('POST', '/catalog', [App\Controller\CatalogController::class]);
+$router->map('POST', '/catalog', App\Controller\CatalogController::class);
 $router->map('GET', '/catalog/product', [App\Controller\CatalogController::class, 'showProduct']);
 $router->map('POST', '/catalog/product', [App\Controller\CatalogController::class, 'showProduct']);
+$router->map('GET', '/catalog/product/add-to-cart', [App\Controller\CatalogController::class, 'addToCart']);
+$router->map('POST', '/catalog/product/add-to-cart', [App\Controller\CatalogController::class, 'addToCart']);
+// cart routes
+$router->map('GET', '/cart', App\Controller\CartController::class);
+$router->map('POST', '/cart', App\Controller\CartController::class);
+$router->map('GET', '/cart/delete', [App\Controller\CartController::class, 'deleteProd']);
+$router->map('POST', '/cart/delete', [App\Controller\CartController::class, 'deleteProd']);
+$router->map('GET', '/cart/update', [App\Controller\CartController::class, 'updateCart']);
+$router->map('POST', '/cart/update', [App\Controller\CartController::class, 'updateCart']);
+$router->map('GET', '/cart/confirm', [App\Controller\CartController::class, 'confirm']);
+$router->map('POST', '/cart/confirm', [App\Controller\CartController::class, 'confirm']);
+
 
 
 // $router->map('GET', '/control-panel/users', App\Controller\ControlPanelUsersController::class);

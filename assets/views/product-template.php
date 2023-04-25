@@ -1,10 +1,8 @@
 <main class="container">
  
   <!-- Left Column / Image -->
-  <div class="left-column">
     <?php $show_img = base64_encode($product['Image']) ?>
     <img src="data:image/png;base64, <?= $show_img ?>" alt="">
-  </div>
  
  
   <!-- Right Column -->
@@ -18,24 +16,48 @@
     </div>
  
     <!-- Product Configuration -->
-    <div class="product-configuration">
- 
-      <!-- Cable Configuration -->
-      <div class="cable-config">
-        <span>Cable configuration</span>
- 
-        <div class="cable-choose">
-          <!-- <button>Straight</button>
-          <button>Coiled</button>
-          <button>Long-coiled</button> -->
+    <form action="/catalog/product/add-to-cart" method="POST">
+      <div class="product-configuration">
+  
+        <!-- Cable Configuration -->
+        <div class="cable-config">
+          <span>Cable configuration</span>
+          <div class="cable-choose">
+            <input id="quantity-input" name="quantity" type="number" min="1" placeholder="1" value="1">
+          </div>
         </div>
       </div>
-    </div>
- 
-    <!-- Product Pricing -->
-    <div class="product-price">
-      <span><?= $product['Price'] ?></span>
-      <a href="#" class="cart-btn">Add to cart</a>
-    </div>
+  
+      <!-- Product Pricing -->
+      <div class="product-price">
+      <div class="message">
+        <div class="mesg">
+            <?php
+                if (isset($_SESSION['message'])) {
+                echo '
+                    <div class = msg-cover>
+                    <p class="msg"> ' . $_SESSION['message'] .'</p>
+                    </div>';
+                }
+                unset($_SESSION['message']);
+            ?>
+        </div>
+      </div>
+        <input type="hidden" name="prodID" value="<?= $product['prodID'] ?>">
+        <span><?= $product['Price'] ?></span>
+        <input id="add-to-cart-link" type="submit" class="cart-btn" value="Add to cart">
+      </div>
+    </form>
   </div>
 </main>
+
+<script>
+  const quantityInput = document.getElementById("quantity-input");
+  const addToCartLink = document.getElementById("add-to-cart-link");
+
+  quantityInput.addEventListener("input", () => {
+    const quantity = quantityInput.value;
+    const href = `/catalog/product/add-to-cart?prodID=<?= $product['prodID'] ?>&quantity=${quantity}`;
+    addToCartLink.href = href;
+  });
+</script>
