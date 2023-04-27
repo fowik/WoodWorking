@@ -41,26 +41,10 @@
                             echo '<a href="/register">Reģistrācija</a>';
                         }
                         ?></li>
-                        <li><a onclick="scrollToStart()">Sākumlapa</a></li>
                         <li><a onclick="scrollToAboutUs()">Par mums</a></li>
                         <li><a href="">Partneri</a></li>
                         <li><a href="/catalog">Produkcijas katalogs</a></li>
                         <li><a href="/contact-us">Kontakti</a></li>
-                        <li class="dropdown-navbar">
-                            <a href="">Preču katalogs</a>
-                            <div class="dropdown-content-navbar">
-                                <a href="">Apdares dēļi(vagondēļi)</a>
-                                <a href="">Block-house(guļbūves baļķu imitācija)</a>
-                                <a href="">Grīdas dēļi</a>
-                                <a href="">Terases dēļi</a>
-                                <a href="">Koka starpsienas</a>
-                                <a href="">Pirts iekšējās apdares dēļi</a>
-                                <a href="">Aplodas</a>
-                                <a href="">Grīdas līstes </a>
-                                <a href="">Ēvelēti žāgmaterāli</a>
-                                <a href="">Ēvelēti zāģmateriāli (Sibirijas lapēgle)</a>
-                            </div>
-                        </li>
                         <?php 
                             if (isset($_SESSION['user'])) {
                                 echo '<li><a href="/cart">Groza</a></li>';
