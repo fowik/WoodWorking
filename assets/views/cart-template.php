@@ -1,62 +1,68 @@
 <div class="board">
-    <table width="100%">
-        <thead>
-            <tr>
-                <td>Produkts</td>
-                <td>Daudzums</td>
-                <td>Cena</td>
-                <td>Kopēja cena</td>
-                <td></td>
-            </tr>
-        </thead>
-
-        
-            <tbody>
-            <?php foreach ($cart as $c) { ?>
+        <table width="100%">
+            <thead>
                 <tr>
-                    <td class="people">
-                        <div class="people-de">
-                            <h5><?= $c['Title'] ?></h5>
-                        </div>
-                    </td>
-
-                    <td class="people-des">
-                        <h5><input type="number" min="1" class="product-quantity" value="<?= $c['Quantity'] ?>" data-product-id="<?= $c['prodID'] ?>"></h5>
-                    </td>
-
-                    <td class="activee">
-                        <h5><?= $c['Price'] ?></h5>
-                    </td>
-                    
-                    <td class="activee activee-total">
-                        <h5 data-product-id="<?= $c['prodID'];?>" class="product-total" data-price="<?= $c['Price'] ?>" data-quantity="<?= $c['Quantity'] ?>"> <?= $c['Total'] ?></h5>
-                    </td>
-
-                    <td class="edit">
-                        <form action="/cart/delete" method="POST">
-                            <input type="hidden" name="prodID" value="<?= $c['prodID'] ?>"></input>
-                            <input type="submit" value="Delete"></input>
-                        </form>
-                    </td>
+                    <td>Produkts</td>
+                    <td>Daudzums</td>
+                    <td>Cena</td>
+                    <td>Kopēja cena</td>
+                    <td></td>
                 </tr>
-                <?php } ?>
-            </tbody>
-        
+            </thead>
 
-        <tfoot>
-            <td>Kopēja cena</td>
-            <td>
-            <?php $cartTotal = 0; ?>
-            <?php foreach ($cart as $c) {
-                $cartTotal += $c['Total'];
-            }?>
-            <h5 id="cart-total"><?= $cartTotal ?></h5>
-            </td>
-            <td>
-                <input type="submit" value="Nopirkt">
-            </td>
-        </tfoot>
-    </table>
+            
+                <tbody>
+                <?php foreach ($cart as $c) { ?>
+                    <tr>
+                        <td class="people">
+                            <div class="people-de">
+                                <h5><?= $c['Title'] ?></h5>
+                            </div>
+                        </td>
+
+                        <td class="people-des">
+                            <h5><input type="number" min="1" class="product-quantity" value="<?= $c['Quantity'] ?>" data-product-id="<?= $c['prodID'] ?>"></h5>
+                        </td>
+
+                        <td class="activee">
+                            <h5><?= $c['Price'] ?></h5>
+                        </td>
+                        
+                        <td class="activee activee-total">
+                            <h5 data-product-id="<?= $c['prodID'];?>" class="product-total" data-price="<?= $c['Price'] ?>" data-quantity="<?= $c['Quantity'] ?>"> <?= $c['Total'] ?></h5>
+                        </td>
+
+                        <td class="edit">
+                            <form action="/cart/delete" method="POST">
+                                <input type="hidden" name="prodID" value="<?= $c['prodID'] ?>"></input>
+                                <input type="submit" value="Delete"></input>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            
+            <form action="cart/confirm" method="POST">
+                <tfoot>
+                    <td>Kopēja cena</td>
+                    <td>
+                        <?php $cartTotal = 0; ?>
+                        <?php foreach ($cart as $c) {
+                            $cartTotal += $c['Total'];
+                        }?>
+                        <h5 id="cart-total"><?= $cartTotal ?></h5>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        
+                            <input class="submit-cart" type="submit" value="Nopirkt">
+                        
+                    </td>
+                </tfoot>
+            </form>
+        </table>
+    </form>        
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

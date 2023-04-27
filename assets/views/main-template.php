@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/assets/css/controlpanel.css">
     <link rel="stylesheet" href="/assets/css/catalog.css">
     <link rel="stylesheet" href="/assets/css/prod-catalog.css">
+    <link rel="stylesheet" href="/assets/css/cart.css">
     <!-- LINKS -->
     <title>Danfort</title>
 </head>
@@ -60,7 +61,11 @@
                                 <a href="">Ēvelēti zāģmateriāli (Sibirijas lapēgle)</a>
                             </div>
                         </li>
-                        <li><a href="/cart">Groza</a></li>
+                        <?php 
+                            if (isset($_SESSION['user'])) {
+                                echo '<li><a href="/cart">Groza</a></li>';
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -68,13 +73,12 @@
     </nav>
 </header>
 <body>
+
 <div class="wrapper">
     <div class="main">
             {{ content }}         
     </div>    
 </div>
-
-</body>
 
 <footer>
     <div class="footer">
@@ -98,6 +102,7 @@
         </div>
     </div>
 </footer>
+</body>
 <script>
     function scrollToAboutUs() {
         window.addEventListener('load', function() {

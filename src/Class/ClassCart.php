@@ -66,4 +66,10 @@ class ClassCart {
 
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
+
+    public function ConfirmOrder() 
+    {
+
+    }
+    
 }

@@ -74,8 +74,8 @@ $router->map('GET', '/cart/delete', [App\Controller\CartController::class, 'dele
 $router->map('POST', '/cart/delete', [App\Controller\CartController::class, 'deleteProd']);
 $router->map('GET', '/cart/update', [App\Controller\CartController::class, 'updateCart']);
 $router->map('POST', '/cart/update', [App\Controller\CartController::class, 'updateCart']);
-$router->map('GET', '/cart/confirm', [App\Controller\CartController::class, 'confirm']);
-$router->map('POST', '/cart/confirm', [App\Controller\CartController::class, 'confirm']);
+$router->map('GET', '/cart/confirm', [App\Controller\CartController::class, 'confirmOrder']);
+$router->map('POST', '/cart/confirm', [App\Controller\CartController::class, 'confirmOrder']);
 
 
 

@@ -81,21 +81,22 @@ class DatabaseConnection
             // printf("Table ordering is successfully created.\n");
         }
 
-        // $cart_table = 
-        // "
-        //     CREATE TABLE IF NOT EXISTS cart (
-        //         cartID int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-        //         uID int(11) UNSIGNED NOT NULL,
-        //         prodID int(11) UNSIGNED NOT NULL,
-        //         PRIMARY KEY (cartID),
-        //         FOREIGN KEY (uID) REFERENCES user(uID),
-        //         FOREIGN KEY (prodID) REFERENCES product(prodID)
-        //     )
-        // ";
+        $order_table = 
+        "
+            CREATE TABLE IF NOT EXISTS cart (
+                cartID int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+                Total decimal(10,2) NOT NULL,
+                orderID int(11) UNSIGNED NOT NULL,
+                userID int(11) UNSIGNED NOT NULL,
+                PRIMARY KEY (cartID),
+                FOREIGN KEY (orderID) REFERENCES ordering(orderID),
+                FOREIGN KEY (userID) REFERENCES user(uID)
+            )
+        ";
 
-        // if ($conn->query($cart_table) === TRUE) {
-        //     // printf("Table cart is successfully created.\n");
-        // }
+        if ($conn->query($order_table) === TRUE) {
+            // printf("Table orders is successfully created.\n");
+        }
 
         return $this->conn = new \PDO("mysql:host=". self::DB_HOST .";dbname=" . self::DB_NAME . "", self::DB_USER, self::DB_PASSWORD);
     }

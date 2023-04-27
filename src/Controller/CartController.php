@@ -41,4 +41,13 @@ class CartController extends DefaultController
         return new JsonResponse($response);
     }
 
+    public function confirmOrder(ServerRequestInterface $request): ResponseInterface
+    {
+        $obj = new ClassCart();
+        $obj->confirmOrder();
+
+        return $this->renderTemplate('cart-template.php', [
+            'cart' => $obj->displayCart()
+        ]);
+    }
 }
