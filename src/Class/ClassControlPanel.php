@@ -19,27 +19,37 @@ class ClassControlPanel {
     {
         $conn = new DatabaseConnection();
 
-        $sql = "SELECT COUNT(*) FROM `orders`";
+        $sql = "SELECT COUNT(*) FROM `orders` WHERE Status = 'Checking'";
         $result = $conn->query($sql);
         
         return $result->fetchColumn();
     }
 
-    public function getProdSellQuant()
+    public function getProdCount()
     {
         $conn = new DatabaseConnection();
 
-        $sql = "SELECT SUM(`Quantity`) FROM `orders`";
+        $sql = "SELECT SUM(Quantity) AS TotalQuantity FROM orderitems WHERE orderID IN (SELECT orderID FROM orders WHERE Status = 'Checking')";
         $result = $conn->query($sql);
         
         return $result->fetchColumn();
     }
 
-    public function getProdSellSum()
+    public function getTotalMonth()
     {
         $conn = new DatabaseConnection();
 
-        $sql = "SELECT SUM(`Price`) FROM `product`";
+        $sql = "SELECT SUM(TotalPrice) FROM orders WHERE Status = 'Checking' AND MONTH(OrderDate) = MONTH(NOW()) AND YEAR(OrderDate) = YEAR(NOW());";
+        $result = $conn->query($sql);
+        
+        return $result->fetchColumn();
+    }
+
+    public function getTotalYear()
+    {
+        $conn = new DatabaseConnection();
+
+        $sql = "SELECT SUM(TotalPrice) FROM orders WHERE Status = 'Checking' AND YEAR(OrderDate) = YEAR(NOW());";
         $result = $conn->query($sql);
         
         return $result->fetchColumn();

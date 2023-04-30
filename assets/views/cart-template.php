@@ -68,29 +68,30 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 
-    $(document).on('change', '.product-quantity', function() {
-        var quantity = $(this).val();
-        var productId = $(this).data('product-id');
+$(document).on('change', '.product-quantity', function() {
+    var quantity = $(this).val();
+    var productId = $(this).data('product-id');
 
-        $.ajax({
-            url: '/cart/update',
-            method: 'POST',
-            data: {productId: productId, quantity: quantity},
-            success: function(response) {                
-                console.log(response);
+    $.ajax({
+        url: '/cart/update',
+        method: 'POST',
+        data: {productId: productId, quantity: quantity},
+        success: function(response) {                
+            console.log(response);
 
-                const prodID = response.prodID;
-                let CartTotal = 0;
+            const prodID = response.prodID;
+            const cartID = response.orderID;
+            let CartTotal = 0;
                 
-                $('td.activee-total > h5').each(function() {
-                    CartTotal += parseFloat($(this).text());
+            $('td.activee-total > h5').each(function() {
+                CartTotal += parseFloat($(this).text());
                     
-                    if ($(this).data('product-id') === prodID) {
-                        $(this).text(response.ProductTotal);
-                        $('#cart-total').text(CartTotal);
-                    }
-                });
-                updateCartTotal();
+                if ($(this).data('product-id') === prodID) {
+                    $(this).text(response.ProductTotal);
+                    $('#cart-total').text(CartTotal);
+                }
+            });
+            updateCartTotal();
         }
     });
 

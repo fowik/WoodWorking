@@ -36,6 +36,7 @@ class ClassAdd {
                 }
             }
         } else {
+            $sql = "SELECT COUNT(*) FROM `product` WHERE `id` = ''";
             $_SESSION['message'] = 'Lūdzu aizpildiet visus laukus!';
         }
     }
@@ -67,6 +68,4 @@ class ClassAdd {
         
         return $result->fetchAll();
     }
-
-    
 }

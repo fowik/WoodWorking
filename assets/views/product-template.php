@@ -44,7 +44,7 @@
         </div>
       </div>
         <input type="hidden" name="prodID" value="<?= $product['prodID'] ?>">
-        <span><?= $product['Price'] ?></span>
+        <span><input type="hidden" name="price" value="<?= $product['Price'] ?>"><?= $product['Price'] ?></span>
         <input id="add-to-cart-link" type="submit" class="cart-btn" value="Add to cart">
       </div>
     </form>

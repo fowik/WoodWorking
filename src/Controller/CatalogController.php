@@ -39,5 +39,7 @@ class CatalogController extends DefaultController
 
         exit();
     }
+
+    
 }
     

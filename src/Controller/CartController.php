@@ -26,9 +26,8 @@ class CartController extends DefaultController
         $obj = new ClassCart();
         $obj->deleteFromCart();
 
-        return $this->renderTemplate('cart-template.php', [
-            'cart' => $obj->displayCart()
-        ]);
+        header('Location: /cart');
+        exit();
     }
 
     public function updateCart(ServerRequestInterface $request): ResponseInterface
@@ -46,8 +45,7 @@ class CartController extends DefaultController
         $obj = new ClassCart();
         $obj->confirmOrder();
 
-        return $this->renderTemplate('cart-template.php', [
-            'cart' => $obj->displayCart()
-        ]);
+        header('Location: /cart');
+        exit();
     }
 }

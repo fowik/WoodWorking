@@ -52,29 +52,29 @@
         <div class="val-box">
             <i></i>
             <div class="val-center">
-                <h3>83,267</h3>
+                <h3><?= $oCount; ?></h3>
                 <span>Total orders</span>
             </div>
         </div>
         <div class="val-box">
             <i></i>
             <div>
-                <h3>822,267</h3>
+                <h3><?= $pCount; ?></h3>
                 <span>Products sell</span>
             </div>
         </div>
         <div class="val-box">
             <i></i>
             <div>
-                <h3>$8.26</h3>
+                <h3><?= $totalMonth ?> $</h3>
                 <span>This month</span>
             </div>
         </div>
         <div class="val-box">
             <i></i>
             <div>
-                <h3>$8.26</h3>
-                <span>This month</span>
+                <h3><?= $totalYear ?> $</h3>
+                <span>This year</span>
             </div>
         </div>
     </div>
@@ -91,8 +91,9 @@
                 </tr>
             </thead>
 
-            <?php foreach ($users as $user) { ?>
+           
                 <tbody>
+                <?php foreach ($users as $user) { ?>
                     <tr>
                         <td class="people">
                             <div class="people-de">
@@ -126,8 +127,8 @@
                             </form>
                         </td>
                     </tr>
-                </tbody>
-            <?php } ?>
+                <?php } ?>
+            </tbody>
         </table>
     </div>
 </section>

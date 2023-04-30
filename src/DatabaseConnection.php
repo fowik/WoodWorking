@@ -64,41 +64,48 @@ class DatabaseConnection
             // printf("Table product is successfully created.\n");
         }
 
-        $ordering_table =
+        $orders_table = 
         "
-            CREATE TABLE IF NOT EXISTS ordering (
-                orderID int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-                Quantity int(11) NOT NULL,
-                prodID int(11) UNSIGNED NOT NULL,
-                userID int(11) UNSIGNED NOT NULL,
-                PRIMARY KEY (orderID),
-                FOREIGN KEY (prodID) REFERENCES product(prodID),
-                FOREIGN KEY (userID) REFERENCES user(uID)
+            CREATE TABLE IF NOT EXISTS orders (
+                OrderID int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+                uID int(11) UNSIGNED NOT NULL,
+                OrderDate DATE NOT NULL,
+                Status VARCHAR(20) NOT NULL,
+                TotalPrice decimal(10,2) NOT NULL,
+                PRIMARY KEY (OrderID),
+                FOREIGN KEY (uID) REFERENCES user(uID)
             )
         ";
-
-        if ($conn->query($ordering_table) === TRUE) {
-            // printf("Table ordering is successfully created.\n");
-        }
-
-        $order_table = 
-        "
-            CREATE TABLE IF NOT EXISTS cart (
-                cartID int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-                Total decimal(10,2) NOT NULL,
-                orderID int(11) UNSIGNED NOT NULL,
-                userID int(11) UNSIGNED NOT NULL,
-                PRIMARY KEY (cartID),
-                FOREIGN KEY (orderID) REFERENCES ordering(orderID),
-                FOREIGN KEY (userID) REFERENCES user(uID)
-            )
-        ";
-
-        if ($conn->query($order_table) === TRUE) {
+        
+        if ($conn->query($orders_table) === TRUE) {
             // printf("Table orders is successfully created.\n");
         }
 
+        $order_items_table =
+        "
+            CREATE TABLE IF NOT EXISTS orderitems (
+                OrderItemID int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+                OrderID int(11) UNSIGNED NOT NULL,
+                ProdID int(11) UNSIGNED NOT NULL,
+                Quantity int(255) NOT NULL,
+                Total decimal(10,2) NOT NULL,
+                PRIMARY KEY (OrderItemID),
+                FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+                FOREIGN KEY (ProdID) REFERENCES Product(ProdID)
+            )
+        ";
+
+        if ($conn->query($order_items_table) === TRUE) {
+            // printf("Table ordering is successfully created.\n");
+        }
+
+
         return $this->conn = new \PDO("mysql:host=". self::DB_HOST .";dbname=" . self::DB_NAME . "", self::DB_USER, self::DB_PASSWORD);
+    }
+
+    public function getConnection(): \PDO
+    {
+        return $this->conn;
     }
 
     public function prepare($sql): \PDOStatement
