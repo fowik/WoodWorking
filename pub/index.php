@@ -42,6 +42,7 @@ $router->map('GET', '/profile/edit', [App\Controller\ProfileController::class, '
 $router->map('POST', '/profile/edit', [App\Controller\ProfileController::class, 'editUser']);
 // control panel routes
 $router->map('GET', '/control-panel', App\Controller\ControlPanelController::class);
+$router->map('GET', '/control-panel/search-users', [App\Controller\ControlPanelController::class, 'searchUsers']);
 $router->map('GET', '/control-panel/products', [App\Controller\ControlPanelController::class, 'showProducts']);
 $router->map('GET', '/control-panel/products/add', [App\Controller\ControlPanelController::class, 'addProduct']);
 $router->map('POST', '/control-panel/products/add', [App\Controller\ControlPanelController::class, 'addProduct']);

@@ -34,6 +34,7 @@ class ClassEdit {
 
     public function editProd() {
         $conn = new DatabaseConnection();
+        $conn->getConnection();
         
         $id = $_POST['prodID'];
         $title = $_POST['title'];
@@ -43,7 +44,13 @@ class ClassEdit {
 
         $sql = "UPDATE product SET Title = :name, Price = :price, Description = :desc, catID = :type WHERE prodID = :id";
         $stmt = $conn->prepare($sql);
-        $stmt->execute(['name' => $title, 'price' => $price, 'desc' => $desc, 'type' => $type, 'id' => $id]);
+        $stmt->execute([
+            'name' => $title, 
+            'price' => $price, 
+            'desc' => $desc, 
+            'type' => $type, 
+            'id' => $id
+        ]);
     }
 
     public function getUser() {

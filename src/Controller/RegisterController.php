@@ -25,5 +25,4 @@ class RegisterController extends DefaultController
             
         return $this->renderTemplate('register-template.php');
     }
-
 }

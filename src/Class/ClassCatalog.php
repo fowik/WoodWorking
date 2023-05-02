@@ -25,6 +25,7 @@ class ClassCatalog {
 
         return $prod;
     }
+    
     public function getTypes() {
         $conn = new DatabaseConnection();
 

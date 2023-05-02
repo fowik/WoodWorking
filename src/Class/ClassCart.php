@@ -29,7 +29,8 @@ class ClassCart {
     }
 
     function deleteFromCart() {
-        $conn = new DatabaseConnection();
+        $conn = new DatabaseConnection;
+        $conn->getConnection();
 
         $prodID = $_POST['prodID'];
         $uID = $_SESSION['user']['id'];

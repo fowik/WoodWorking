@@ -7,6 +7,8 @@ namespace App\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Laminas\Diactoros\Response;  
+use Laminas\Diactoros\Response\JsonResponse;
+
 use App\Class\ClassSessionCheck;
 use App\Class\ClassControlPanel;
 use App\Class\ClassAdd;
@@ -143,5 +145,16 @@ class ControlPanelController extends DefaultController
         }
 
         return new Response\RedirectResponse('/control-panel');
+    }
+
+    public function searchUsers(ServerRequestInterface $request): ResponseInterface
+    {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+
+        $obj = new ClassControlPanel();
+        $response = $obj->searchUsers($request->getQueryParams()['search']);
+
+        return new JsonResponse($response);
     }
 }

@@ -42,7 +42,11 @@ class ClassControlPanel {
         $sql = "SELECT SUM(TotalPrice) FROM orders WHERE Status = 'Checking' AND MONTH(OrderDate) = MONTH(NOW()) AND YEAR(OrderDate) = YEAR(NOW());";
         $result = $conn->query($sql);
         
-        return $result->fetchColumn();
+        if ($result->fetchColumn() == null) {
+            return '0.00';
+        } else {
+            return $result->fetchColumn();
+        }
     }
 
     public function getTotalYear()
@@ -52,7 +56,11 @@ class ClassControlPanel {
         $sql = "SELECT SUM(TotalPrice) FROM orders WHERE Status = 'Checking' AND YEAR(OrderDate) = YEAR(NOW());";
         $result = $conn->query($sql);
         
-        return $result->fetchColumn();
+        if ($result->fetchColumn() == null) {
+            return '0.00';
+        } else {
+            return $result->fetchColumn();
+        }
     }
 
     public function getUsers() {
@@ -71,5 +79,16 @@ class ClassControlPanel {
         $result = $conn->query($sql);
         
         return $result->fetchAll();
+    }
+
+    public function searchUsers($searchTerm) {
+        $conn = new DatabaseConnection();
+        $pdo = $conn->getConnection();
+
+        $stmt = $pdo->prepare("SELECT * FROM user WHERE Username LIKE :searchTerm OR Surname LIKE :searchTerm");
+        $stmt->execute([':searchTerm' => '%' . $searchTerm . '%']);
+        $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $results;
     }
 }
