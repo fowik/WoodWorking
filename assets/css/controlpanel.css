@@ -261,6 +261,13 @@ tbody tr td{
     padding: 10px 15px;
 }
 
+tbody tr td h5 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 500px;
+}
+
 .activee p{
     background: #d7fada;
     padding: 10px 20px;

@@ -136,34 +136,34 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-        $("#searchInput").on("keyup", function() {
-            var searchTerm = $(this).val();
-            $.ajax({
-                url: "/control-panel/search-users",
-                type: "GET",
-                data: { search: searchTerm },
-                dataType: "json",
-                success: function(response) {
-                    updateTable(response);
-                }
-            });
+    $("#searchInput").on("keyup", function() {
+        var searchTerm = $(this).val();
+        $.ajax({
+            url: "/control-panel/search-users",
+            type: "GET",
+            data: { search: searchTerm },
+            dataType: "json",
+            success: function(response) {
+                updateTable(response);
+            }
         });
     });
+});
 
-    function updateTable(data) {
-        var tableBody = $("#tableBody");
-        tableBody.empty();
+function updateTable(data) {
+    var tableBody = $("#tableBody");
+    tableBody.empty();
 
-        $.each(data, function(index, user) {
-            var tr = $("<tr></tr>");
-            tr.append("<td><h5>" + user.Name + ", " + user.Surname + "</h5><p>" + user.Username + "</p></td>");
-            tr.append("<td><h5>+371 " + user.PhoneNumber + "<h5><p>" + user.Email + "</p></td>");
-            tr.append("<td class='activee'><p>Active</p></td>");
-            tr.append("<td class='role'><p>" + (user.isAdmin == 1 ? "Administrators" : "Lietotājs") + "</p></td>");
-            tr.append("<td class='edit'><form action='/control-panel/delete' method='POST'><a href='/control-panel/edit-user?uID=" + user.uID + "'>Edit</a><input type='submit' value='Delete'></input></form></td>");
+    $.each(data, function(index, user) {
+        var tr = $("<tr></tr>");
+        tr.append("<td><h5>" + user.Name + ", " + user.Surname + "</h5><p>" + user.Username + "</p></td>");
+        tr.append("<td><h5>+371 " + user.PhoneNumber + "<h5><p>" + user.Email + "</p></td>");
+        tr.append("<td class='activee'><p>Active</p></td>");
+        tr.append("<td class='role'><p>" + (user.isAdmin == 1 ? "Administrators" : "Lietotājs") + "</p></td>");
+        tr.append("<td class='edit'><form action='/control-panel/delete' method='POST'><a href='/control-panel/edit-user?uID=" + user.uID + "'>Edit</a><input type='submit' value='Delete'></input></form></td>");
 
-            tableBody.append(tr);
-        });
-    }
+        tableBody.append(tr);
+    });
+}
 </script>
 </script>

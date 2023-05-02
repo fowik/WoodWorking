@@ -52,6 +52,7 @@ $router->map('GET', '/control-panel/products/delete', [App\Controller\ControlPan
 $router->map('POST', '/control-panel/products/delete', [App\Controller\ControlPanelController::class, 'deleteProduct']);
 $router->map('POST', '/control-panel/delete', [App\Controller\ControlPanelController::class, 'deleteUser']);
 $router->map('GET', '/control-panel/delete', [App\Controller\ControlPanelController::class, 'deleteUser']);
+$router->map('GET', '/control-panel/products/search-products', [App\Controller\ControlPanelController::class, 'searchProducts']);
 $router->map('GET', '/control-panel/products/edit', [App\Controller\ControlPanelController::class, 'showEditProduct']);
 $router->map('POST', '/control-panel/products/edit', [App\Controller\ControlPanelController::class, 'showEditProduct']);
 $router->map('GET', '/control-panel/product/product-edit', [App\Controller\ControlPanelController::class, 'EditProduct']);

@@ -26,7 +26,7 @@
     <div class="navigation">
         <div class="n1">
             <div class="search">
-                <input type="text" placeholder="Search...">
+                <input type="text" placeholder="Search..." id="searchInput">
             </div>
         </div>
 
@@ -43,12 +43,11 @@
                         <td>Title</td>
                         <td>Description</td>
                         <td>Price</td>
-                        <!-- <td>Category</td> -->
                         <td></td>
                     </tr>
                 </thead>
-                <?php foreach ($products as $product) { ?>
-                    <tbody>
+                <tbody id="tableBody">
+                    <?php foreach ($products as $product) { ?>
                         <tr>
                             <td class="people">
                                 <div class="people-de">
@@ -64,7 +63,7 @@
                             <td class="role">
                                 <p><?= $product['Price'] ?></p>
                             </td>
-                                
+
                             <td class="edit">
                                 <form action="/control-panel/products/delete" method="POST">
                                     <input type="hidden" name="prodID" value="<?= $product['prodID'] ?>">
@@ -72,11 +71,38 @@
                                     <input type="submit" value="Delete"></input>
                                 </form>
                             </td>
-                            
                         </tr>
-                    </tbody>
-                <?php } ?>
+                    <?php } ?>
+                </tbody>
             </table>
         </div>
     </div>
 </section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#searchInput").on("keyup", function() {
+        var searchTerm = $(this).val();
+        $.ajax({
+            url: "/control-panel/products/search-products",
+            type: "GET",
+            data: { search: searchTerm },
+            dataType: "json",
+            success: function(response) {
+                var tableBody = $("#tableBody");
+                tableBody.empty(); // удалить все содержимое таблицы
+                $.each(response, function(index, product) {
+                    var tr = $("<tr></tr>");
+                    tr.append("<td class='people'><div class='people-de'><h5>" + product.Title + "</h5></div></td>");
+                    tr.append("<td class='people-des'><h5>" + product.Description + "</h5></td>");
+                    tr.append("<td class='role'><p>" + product.Price + "</p></td>");
+                    tr.append("<td class='edit'><form action='/control-panel/products/delete' method='POST'><input type='hidden' name='prodID' value='" + product.prodID + "'><a href='/control-panel/products/edit?catID=" + product.catID + "&prodID=" + product.prodID + "'>Edit</a><input type='submit' value='Delete'></input></form></td>");
+                    tableBody.append(tr);
+                });
+            }
+        });
+    });
+});
+</script>
+

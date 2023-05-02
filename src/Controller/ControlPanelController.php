@@ -157,4 +157,15 @@ class ControlPanelController extends DefaultController
 
         return new JsonResponse($response);
     }
+
+    public function searchProducts(ServerRequestInterface $request): ResponseInterface
+    {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+
+        $obj = new ClassControlPanel();
+        $response = $obj->searchProducts($request->getQueryParams()['search']);
+
+        return new JsonResponse($response);
+    }
 }

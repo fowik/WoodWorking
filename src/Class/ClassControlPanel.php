@@ -42,10 +42,11 @@ class ClassControlPanel {
         $sql = "SELECT SUM(TotalPrice) FROM orders WHERE Status = 'Checking' AND MONTH(OrderDate) = MONTH(NOW()) AND YEAR(OrderDate) = YEAR(NOW());";
         $result = $conn->query($sql);
         
-        if ($result->fetchColumn() == null) {
+        $row = $result->fetch(\PDO::FETCH_NUM);
+        if ($row[0] === null) {
             return '0.00';
         } else {
-            return $result->fetchColumn();
+            return $row[0];
         }
     }
 
@@ -56,10 +57,11 @@ class ClassControlPanel {
         $sql = "SELECT SUM(TotalPrice) FROM orders WHERE Status = 'Checking' AND YEAR(OrderDate) = YEAR(NOW());";
         $result = $conn->query($sql);
         
-        if ($result->fetchColumn() == null) {
+        $row = $result->fetch(\PDO::FETCH_NUM);
+        if ($row[0] === null) {
             return '0.00';
         } else {
-            return $result->fetchColumn();
+            return $row[0];
         }
     }
 
@@ -86,6 +88,17 @@ class ClassControlPanel {
         $pdo = $conn->getConnection();
 
         $stmt = $pdo->prepare("SELECT * FROM user WHERE Username LIKE :searchTerm OR Surname LIKE :searchTerm");
+        $stmt->execute([':searchTerm' => '%' . $searchTerm . '%']);
+        $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+    public function searchProducts($searchTerm) {
+        $obj = new DatabaseConnection();
+        $conn = $obj->getConnection();
+
+        $stmt = $conn->prepare("SELECT prodID, Title, Description, Price FROM product WHERE Title LIKE :searchTerm");
         $stmt->execute([':searchTerm' => '%' . $searchTerm . '%']);
         $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
