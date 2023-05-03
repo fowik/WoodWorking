@@ -8,11 +8,15 @@ use Laminas\Diactoros\Response;
 use Laminas\Diactoros\Response\JsonResponse;
 
 use App\Class\ClassCart;
+use App\Class\ClassSessionCheck;
 
 class CartController extends DefaultController
 {
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {
+        $obj = new ClassSessionCheck();
+        $obj->sessionCheck();
+
         $obj = new ClassCart();
         $obj->displayCart();
 

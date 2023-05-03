@@ -77,7 +77,6 @@ $(document).on('change', '.product-quantity', function() {
         method: 'POST',
         data: {productId: productId, quantity: quantity},
         success: function(response) {                
-            console.log(response);
 
             const prodID = response.prodID;
             const cartID = response.orderID;
