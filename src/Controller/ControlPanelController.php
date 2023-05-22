@@ -47,7 +47,32 @@ class ControlPanelController extends DefaultController
             'products' => $obj->getProd()
         ]);
     }
+
+    public function showOrders(ServerRequestInterface $request): ResponseInterface
+    {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+
+        $obj = new ClassControlPanel();
+
+        return $this->renderTemplate('control-panel-orders.php',
+        [
+            'orders' => $obj->getOrders()
+        ]);
+    }
     
+    public function ordersToCsv(ServerRequestInterface $request): ResponseInterface
+    {
+        $obj = new ClassSessionCheck();
+        $obj->LoggedAdminSessionCheck();
+
+        $obj = new ClassControlPanel();
+        $obj->exportToCsv();
+
+        return new Response\RedirectResponse('/control-panel/orders');
+    }
+
+
     public function addProduct(ServerRequestInterface $reqyest): ResponseInterface
     {
         $obj = new ClassSessionCheck();
@@ -60,7 +85,10 @@ class ControlPanelController extends DefaultController
 
         $obj = new ClassAdd();
 
-        return $this->renderTemplate('control-panel-add-product.php', ['types' => $obj->getTypes()]);
+        return $this->renderTemplate('control-panel-add-product.php', 
+        [
+            'types' => $obj->getTypes()
+        ]);
     }
 
     public function addProductType(ServerRequestInterface $request): ResponseInterface

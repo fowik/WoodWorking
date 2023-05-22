@@ -19,6 +19,7 @@
             </ul>
         </li>
         <li><a href="/control-panel/managers">Managers list</a></li>
+        <li><a href="/control-panel/orders">Order history</a></li>
     </div>
     
 </section>

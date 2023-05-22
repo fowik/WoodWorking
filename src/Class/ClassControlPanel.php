@@ -15,6 +15,75 @@ class ClassControlPanel {
         return $result->fetchColumn();
     }
 
+    public function getOrders() 
+    {
+        $conn = new DatabaseConnection();
+
+        $sql = 
+        "SELECT 
+            product.Title, 
+            SUM(orderitems.Quantity) as Quantity,
+            SUM(orderitems.Total) as Price
+        FROM orders 
+        INNER JOIN orderitems 
+            ON orders.orderID = orderitems.orderID
+        INNER JOIN product
+            ON orderitems.prodID = product.prodID
+        WHERE Status = 'Checking'
+        GROUP BY product.Title
+        Order by product.Title";
+        $result = $conn->query($sql);
+        
+        return $result->fetchAll();
+    }
+
+    public function exportToCsv()
+    {
+        $conn = new DatabaseConnection();
+
+        $query = $conn->query("SELECT 
+        product.Title, 
+            SUM(orderitems.Quantity) as Quantity,
+            SUM(orderitems.Total) as Price
+        FROM orders 
+        INNER JOIN orderitems 
+            ON orders.orderID = orderitems.orderID
+        INNER JOIN product
+            ON orderitems.prodID = product.prodID
+        WHERE Status = 'Checking'
+        GROUP BY product.Title
+        Order by product.Title");
+
+        if($query->rowCount() > 0)
+        {
+            $delimiter = ';';
+            $filename = "orders-data_" . date('Y-m-d') . ".csv";
+
+            $f = fopen('php://memory', 'w');
+
+            $fields = array('Title', 'Quantity', 'Price');
+            fputcsv($f, $fields, $delimiter);
+
+            while ($row = $query->fetch(\PDO::FETCH_ASSOC))
+            {
+                $lineData = array(
+                    $row['Title'], 
+                    $row['Quantity'], 
+                    $row['Price']
+                );
+                fputcsv($f, $lineData, $delimiter);
+            }
+
+            fseek($f, 0);
+
+            header('Content-Type: text/csv');
+            header('Content-Disposition: attachment; filename="' . $filename . '";');
+
+            fpassthru($f);
+        }
+        exit();
+    }
+
     public function getOrderCount()
     {
         $conn = new DatabaseConnection();

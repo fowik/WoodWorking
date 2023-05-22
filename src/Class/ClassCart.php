@@ -50,6 +50,8 @@ class ClassCart {
 
         $sql = "DELETE FROM orderitems WHERE prodID = $prodID AND OrderID = $cartID";
 
+        $sql = "DELETE FROM orders WHERE OrderID = $cartID AND Status = 'In Cart'";
+
         $stmt = $conn->prepare($sql);
         $stmt->execute();
     }

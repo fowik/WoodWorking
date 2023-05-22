@@ -61,6 +61,8 @@ $router->map('GET', '/control-panel/edit-user', [App\Controller\ControlPanelCont
 $router->map('POST', '/control-panel/edit-user', [App\Controller\ControlPanelController::class, 'showEditUser']);
 $router->map('GET', '/control-panel/user/edit', [App\Controller\ControlPanelController::class, 'EditUser']);
 $router->map('POST', '/control-panel/user/edit', [App\Controller\ControlPanelController::class, 'EditUser']);
+$router->map('GET', '/control-panel/orders', [App\Controller\ControlPanelController::class, 'showOrders']);
+$router->map('GET', '/control-panel/orders/export-to-csv', [App\Controller\ControlPanelController::class, 'ordersToCsv']);
 
 // catalog routes
 $router->map('GET', '/catalog', App\Controller\CatalogController::class);
@@ -79,19 +81,7 @@ $router->map('POST', '/cart/update', [App\Controller\CartController::class, 'upd
 $router->map('GET', '/cart/confirm', [App\Controller\CartController::class, 'confirmOrder']);
 $router->map('POST', '/cart/confirm', [App\Controller\CartController::class, 'confirmOrder']);
 
-
-
-// $router->map('GET', '/control-panel/users', App\Controller\ControlPanelUsersController::class);
-// $router->map('GET', '/control-panel/users/edit', App\Controller\ControlPanelUsersEditController::class);
-// $router->map('POST', '/control-panel/users/edit', App\Controller\ControlPanelUsersEditController::class);
-// $router->map('GET', '/control-panel/users/delete', App\Controller\ControlPanelUsersDeleteController::class);
-// $router->map('GET', '/control-panel/users/add', App\Controller\ControlPanelUsersAddController::class);
-// $router->map('POST', '/control-panel/users/add', App\Controller\ControlPanelUsersAddController::class);
-// $router->map('GET', '/profile/delete', App\Controller\ProfileDeleteController::class);
-// $router->map('GET', '/profile/change-password', App\Controller\ProfileChangePasswordController::class);
-// $router->map('POST', '/profile/change-password', App\Controller\ProfileChangePasswordController::class);
-// $router->map('GET', '/profile/change-email', App\Controller\ProfileChangeEmailController::class);
-// $router->map('POST', '/profile/change-email', App\Controller\ProfileChangeEmailController::class);
+// contact routes
 $router->map('GET', '/contact-us', App\Controller\ContactController::class);
 
 try {

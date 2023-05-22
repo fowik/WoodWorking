@@ -11,6 +11,7 @@ use App\Class\ClassSessionCheck;
 use App\Class\ClassUpdateProfile;
 use App\Class\ClassSession;
 use App\Class\ClassLoginForm;
+use App\DatabaseConnection;
 
 class ProfileController extends DefaultController
 {
@@ -18,7 +19,7 @@ class ProfileController extends DefaultController
     {
         // if ($request->getMethod() === 'post') {
         // }
-        
+
         $obj = new ClassSessionCheck();
         $obj->sessionCheck();
 
